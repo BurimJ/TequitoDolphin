@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="app.css" />
+    <title>Simple SPA - Tabs</title>
+  </head>
+
+  <body>
+    <!-- Nav Bar with custom links -->
+    <!-- The href must match with an id of a view (section) -->
+    <header>Homie APP</header>
+    <!-- Views -->
+    <!-- All views (sections) must have an id -->
+    <main>
+      <nav>
+        <a href="#home" class="view-link">Home</a>
+        <a href="#members " class="view-link">Members</a>
+        <a href="#competition" class="view-link">Competition</a>
+        <a href="#payments" class="view-link">Payments</a>
+      </nav>
+      <!-- Home View -->
+      <!-- Route: #home -->
+      <div id="innerBody">
+        <section id="home" class="view-content">
+          <h2>Home</h2>
+          <p>Home is where you can lay down 💛</p>
+          <p>Jamie, pull it up</p>
+        </section>
+
+        <!-- News View -->
+        <!-- Route: #news -->
+        <section id="members" class="view-content">
+          <h2>members</h2>
+          <p>Some members are slacking 🎉</p>
+        </section>
+
+        <!-- About View -->
+        <!-- Route: #about -->
+        <section id="competition" class="view-content">
+          <h2>Competition</h2>
+          <p>the top G's 🤷🏼‍♂️</p>
+        </section>
+
+        <!-- Contact View -->
+        <!-- Route: #contact -->
+        <section id="payments" class="view-content">
+          <h2>Payments</h2>
+          <p>go get the paper ☕️</p>
+          <p>rich flex 🤷🏼‍♂️</p>
+        </section>
+
+        <!-- Contact View -->
+        <section id="contact" class="view-content">
+          <h2>Contact</h2>
+          <p>do you know da way? 🤷🏼‍♂️</p>
+        </section>
+      </div>
+      <div id="achievements">
+        <h2>Achievements</h2>
+        <p>Gold 🤷🏼‍♂️</p>
+        <p>Silver 🤷🏼‍♂️</p>
+        <p>Bronze 🤷🏼‍♂️</p>
+      </div>
+      <div id="portrait">
+        <h2>Lich King</h2>
+        <img
+          src="https://images.hdqwalls.com/wallpapers/lich-king-world-of-warcraft-4k-5k-47.jpg"
+          alt=""
+          srcset=""
+        />
+      </div>
+    </main>
+
+    <footer>
+      <div id="left-wrap">
+        <p>Monday-Friday: 09:00 - 19:00</p>
+        <p>Saturday: 09:00 - 15:00</p>
+        <p>Sunday: Closed</p>
+      </div>
+      <a href="#contact" class="view-link">Contact</a>
+    </footer>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
