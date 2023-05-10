@@ -1,87 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="app.css" />
-    <title>Simple SPA - Tabs</title>
-  </head>
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="app.css" />
+      <title>Simple SPA - Tabs</title>
+   </head>
 
-  <body>
-    <!-- Nav Bar with custom links -->
-    <!-- The href must match with an id of a view (section) -->
-    <header>Homie APP</header>
-    <!-- Views -->
-    <!-- All views (sections) must have an id -->
-    <main>
-      <nav>
-        <a href="#home" class="view-link">Home</a>
-        <a href="#members " class="view-link">Members</a>
-        <a href="#competition" class="view-link">Competition</a>
-        <a href="#payments" class="view-link">Payments</a>
-      </nav>
-      <!-- Home View -->
-      <!-- Route: #home -->
-      <div id="innerBody">
-        <section id="home" class="view-content">
-          <h2>Home</h2>
-          <p>Home is where you can lay down 💛</p>
-          <p>Jamie, pull it up</p>
-        </section>
+   <body>
+      <!-- Nav Bar with custom links -->
+      <!-- The href must match with an id of a view (section) -->
+      <header>Homie APP</header>
+      <!-- Views -->
+      <!-- All views (sections) must have an id -->
+      <main>
+         <nav>
+            <a href="#home" class="view-link">Home</a>
+            <a href="#members " class="view-link">Members</a>
+            <a href="#competition" class="view-link">Competition</a>
+            <a href="#payments" class="view-link">Payments</a>
+         </nav>
+         <!-- Home View -->
+         <!-- Route: #home -->
+         <div id="innerBody">
+            <section id="home" class="view-content">
+               <h2>Home</h2>
+               <p>Home is where you can lay down 💛</p>
+               <p>Jamie, pull it up</p>
+            </section>
 
-        <!-- News View -->
-        <!-- Route: #news -->
-        <section id="members" class="view-content">
-          <h2>members</h2>
-          <p>Some members are slacking 🎉</p>
-        </section>
+            <!-- News View -->
+            <!-- Route: #news -->
+            <section id="members" class="view-content">
+               <h2>members</h2>
+               <p>Some members are slacking 🎉</p>
+            </section>
 
-        <!-- About View -->
-        <!-- Route: #about -->
-        <section id="competition" class="view-content">
-          <h2>Competition</h2>
-          <p>the top G's 🤷🏼‍♂️</p>
-        </section>
+            <!-- About View -->
+            <!-- Route: #about -->
+            <section id="competition" class="view-content">
+               <h2>Competition</h2>
+               <p>the top G's 🤷🏼‍♂️</p>
+            </section>
 
-        <!-- Contact View -->
-        <!-- Route: #contact -->
-        <section id="payments" class="view-content">
-          <h2>Payments</h2>
-          <p>go get the paper ☕️</p>
-          <p>rich flex 🤷🏼‍♂️</p>
-        </section>
+            <!-- Contact View -->
+            <!-- Route: #contact -->
+            <section id="payments" class="view-content">
+               <h2>Payments</h2>
+               <p>go get the paper ☕️</p>
+               <p>rich flex 🤷🏼‍♂️</p>
+            </section>
 
-        <!-- Contact View -->
-        <section id="contact" class="view-content">
-          <h2>Contact</h2>
-          <p>do you know da way? 🤷🏼‍♂️</p>
-        </section>
-      </div>
-      <div id="achievements">
-        <h2>Achievements</h2>
-        <p>Gold 🤷🏼‍♂️</p>
-        <p>Silver 🤷🏼‍♂️</p>
-        <p>Bronze 🤷🏼‍♂️</p>
-      </div>
-      <div id="portrait">
-        <h2>Lich King</h2>
-        <img
-          src="https://images.hdqwalls.com/wallpapers/lich-king-world-of-warcraft-4k-5k-47.jpg"
-          alt=""
-          srcset=""
-        />
-      </div>
-    </main>
+            <!-- Contact View -->
+            <section id="contact" class="view-content">
+               <h2>Contact</h2>
+               <p>do you know da way? 🤷🏼‍♂️</p>
+            </section>
+         </div>
+         <div id="achievements">
+            <h2>Achievements</h2>
+            <p>Gold 🤷🏼‍♂️</p>
+            <p>Silver 🤷🏼‍♂️</p>
+            <p>Bronze 🤷🏼‍♂️</p>
+         </div>
+         <div id="portrait">
+            <h2>Lich King</h2>
+            <img src="https://images.hdqwalls.com/wallpapers/lich-king-world-of-warcraft-4k-5k-47.jpg" alt="" srcset="" />
+         </div>
+      </main>
+      <!-- form for normal membership -->
+      <dialog id="dialog-for-member">
+         <form id="form-for-member">
+          <h3>Opret medlem</h3>
+            <section id="personal-information-member">
+               <label>Fulde navn <input type="text" /></label></br></br>
+               <label>Alder <input type="number" /></label></br></br>
+               <label>Fødselsdag <input type="date" /></label></br></br>
+               <label>Type af medlemsskab
+                <select>
+                  <option>Baby-svømnings kontingent</option>
+                  <option>Børne-svømnings kontingent</option>
+                  <option>Ungdoms-svømnings kontingent A (1 gang om ugen)</option>
+                  <option>Ungdoms-svømnings kontingent B (2 gange om ugen)</option>
+                  <option>Pensionist kontingent</option>
+                  <option>Flex kontingent</option>
+                </select>
+               </label></br></br>
+            </section>
+            <p>Hvis du ikke er tilknyttet et hold og bruger hallen uden for træningstider kan de 2 næste felter springes over.</p> </br>
+            <section id="club-information-member">
+              <label>Hvilken hold er du tilknyttet?
+                <select id="membership-member">
+                  <option></option>
+                  <option>Baby-svømning</option>
+                  <option>Børne-svømning</option>
+                  <option>Begynder ungdoms-svømning</option>
+                  <option>Ungdoms-svømning</option>
+                  <option>U-25 svømning</option>
+                  <option>Senior-svømning</option>
+                </select>
+              </label></br></br>
+              <label>Tilknyttet træner
+                <select>
+                  <option></option>
+                  <option>Sebastian (Baby-svømning)</option>
+                  <option>Rune (Børne-svømning)</option>
+                  <option>Hanne (Begynder ungdoms-svømning)</option>
+                  <option>Katrine (Ungdoms-svømning)</option>
+                  <option>Kirsten (U-25 svømning)</option>
+                  <option>Mikkel (Senior-svømning)</option>
+                </select>
+              </label></br></br>
+            </section>
+            <p id="obs-member">OBS. hvis du er konkurrence-svømmer eller svømmer stævner, skal du tilmelde dig gennem "opret konkurrence-svømmer" knappen istedet.</p></br>
+            <section>
+              <button>Submit</button>
+              <button>Reset</button>
+              <button>Close</button>
+            </section>
+         </form>
+      </dialog>
+      <!-- form for competititve swimmers -->
+      <dialog open id="dialog-for-competitor">
+        <form id="form-for-competitor">
+          <h3>Add Competitive Swimmer</h3>
+            <section id="personal-information-competitor">
+               <label>First name <input type="text" id="first-name-c"/></label></br></br>
+               <label>Last name <input type="text" id="last-name-c" /></label></br></br>
+               <label>Age <input type="number" id="age-c" /></label></br></br>
+               <label>Birth Date <input type="date" id="birthdate-c"/></label></br></br>
+               <label>Mail <input type="email" id="email-c"/></label></br></br>
+               <label>Type of membership
+                <select id="membership-c">
+                  <option>Konkurrence ungdom A (træning 8 gange om ugen)</option>
+                  <option>Konkurrence ungdom B (træning 6 gange om ugen)</option>
+                  <option>Konkurrence ungdom C (træning 4 gange om ugen)</option>
+                  <option>Konkurrence senior A (træning 8 gange om ugen)</option>
+                  <option>Konkurrence senior B (træning 5 gange om ugen)</option>
+                </select>
+               </label></br></br>
+            </section>
+            <section id="club-information-competitor">
+              <label>What team are you connected to?
+                <select id="team-c">
+                  <option value="UA">Junior A U-21</option>
+                  <option value="UB">Junior B U-18</option>
+                  <option value="UC">Junior C U-15</option>
+                  <option value="SA">Senior A U-25</option>
+                  <option value="SB">Senior B</option>
+                </select>
+              </label></br></br>
+              <!-- Ville være nice hvis vi kunne tilføje træner gennem javascript -->
+              <label>Assigned Coach
+                <select>
+                  <option></option>
+                </select>
+              </label></br></br>
+            </section>
+            <section id="disciplines">
+            <label for="disciplines">My Disciplines</label></br></br>
+            <label><input type="checkbox" id="crawl" value="Crawl"> Crawl </label></br>
+            <label><input type="checkbox" id="ryg-crawl" value="Ryg Crawl"> Ryg-Crawl </label></br>
+            <label><input type="checkbox" id="bryst-svømning" value="Bryst Svømning"> Brystsvømning </label></br>
+            <label><input type="checkbox" id="butterfly" value="Butterfly"> Butterfly</label></br>
+            <label><input type="checkbox" id="fri" value="Fri"> Fri</label></br>
+            </section></br></br>
+            <section>
+              <button>Submit</button>
+              <button>Reset</button>
+              <button>Close</button>
+            </section>
+         </form>
+      </dialog>
 
-    <footer>
-      <div id="left-wrap">
-        <p>Monday-Friday: 09:00 - 19:00</p>
-        <p>Saturday: 09:00 - 15:00</p>
-        <p>Sunday: Closed</p>
-      </div>
-      <a href="#contact" class="view-link">Contact</a>
-    </footer>
-    <script src="app.js" type="module"></script>
-  </body>
+      <footer>
+         <div id="left-wrap">
+            <p>Monday-Friday: 09:00 - 19:00</p>
+            <p>Saturday: 09:00 - 15:00</p>
+            <p>Sunday: Closed</p>
+         </div>
+         <a href="#contact" class="view-link">Contact</a>
+      </footer>
+      <script src="app.js" type="module"></script>
+      <script src="create-id.js"></script>
+   </body>
 </html>
