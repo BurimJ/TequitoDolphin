@@ -24,3 +24,49 @@ function randomNumber() {
 
 console.log(extractThree("frederikke"));
 console.log(createID("frederikke", "vammen", "UA"));
+
+const numbersArray = [10.52, 13.59, 16.67, 11.84, 11.84, 15.94, 19.56, 17.53, 12.23, 18.12];
+const numbersArray1 = [10.52, 10.53, 10.54, 11.22, 13.59, 16.67, 11.84, 11.84, 15.94, 19.56, 17.53, 12.23, 18.12];
+
+const sortedArray = numbersArray.sort((a, b) => a - b);
+
+function sortByValue(array) {
+   const sortedArray = array.sort((a, b) => a - b);
+
+   if (sortedArray[4] === sortedArray[5]) {
+      return sortedArray.slice(0, 6);
+   } else {
+      return sortedArray.slice(0, 5);
+   }
+}
+
+console.log(sortedArray);
+console.log(sortByValue(numbersArray));
+console.log(sortByValue(numbersArray1));
+
+// filter funktioner
+
+const madeUpArray = [
+   { discipline: "Crawl", time: 10.11 },
+   { discipline: "Butterfly", time: 10.12 },
+   { discipline: "Ryg-crawl", time: 10.13 },
+   { discipline: "Brystsvømning", time: 10.14 },
+   { discipline: "Crawl", time: 10.15 },
+   { discipline: "Ryg-crawl", time: 10.16 },
+   { discipline: "Crawl", time: 10.17 },
+   { discipline: "Crawl", time: 10.18 },
+   { discipline: "Butterfly", time: 10.19 },
+   { discipline: "Crawl", time: 10.2 },
+];
+
+function isCrawl(array) {
+   const sortedArray = [];
+   for (let i = 0; i < array.length; i++) {
+      if (array[i].discipline === "Crawl") {
+         sortedArray.push(array[i]);
+      }
+   }
+   return sortedArray;
+}
+
+console.log(isCrawl(madeUpArray));
