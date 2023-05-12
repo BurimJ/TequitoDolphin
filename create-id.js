@@ -22,8 +22,8 @@ function randomNumber() {
 // hvis man ville, så kunne man bruge sit id som kode.
 // hvis det giver mening. en authenticator af en form.
 
-console.log(extractThree("frederikke"));
-console.log(createID("frederikke", "vammen", "UA"));
+// console.log(extractThree("frederikke"));
+// console.log(createID("frederikke", "vammen", "UA"));
 
 const numbersArray = [10.52, 13.59, 16.67, 11.84, 11.84, 15.94, 19.56, 17.53, 12.23, 18.12];
 const numbersArray1 = [10.52, 10.53, 10.54, 11.22, 13.59, 16.67, 11.84, 11.84, 15.94, 19.56, 17.53, 12.23, 18.12];
@@ -40,9 +40,9 @@ function sortByValue(array) {
    }
 }
 
-console.log(sortedArray);
-console.log(sortByValue(numbersArray));
-console.log(sortByValue(numbersArray1));
+// console.log(sortedArray);
+// console.log(sortByValue(numbersArray));
+// console.log(sortByValue(numbersArray1));
 
 // filter funktioner
 
@@ -69,25 +69,25 @@ function isCrawl(array) {
    return sortedArray;
 }
 
-console.log(isCrawl(madeUpArray));
+// console.log(isCrawl(madeUpArray));
 
 const tider = [
-   { minuts: 14, seconds: 10, milliseconds: 10 },
    { minuts: 10, seconds: 10, milliseconds: 10 },
-   { minuts: 12, seconds: 10, milliseconds: 10 },
-   { minuts: 11, seconds: 10, milliseconds: 10 },
-   { minuts: 11, seconds: 10, milliseconds: 10 },
-   { minuts: 11, seconds: 10, milliseconds: 10 },
-   { minuts: 12, seconds: 10, milliseconds: 10 },
-   { minuts: 15, seconds: 10, milliseconds: 10 },
-   { minuts: 16, seconds: 10, milliseconds: 10 },
-   { minuts: 13, seconds: 10, milliseconds: 10 },
+   { minuts: 10, seconds: 10, milliseconds: 11 },
+   { minuts: 10, seconds: 10, milliseconds: 12 },
+   { minuts: 10, seconds: 10, milliseconds: 13 },
+   { minuts: 10, seconds: 10, milliseconds: 13 },
+   { minuts: 10, seconds: 10, milliseconds: 13 },
+   { minuts: 10, seconds: 10, milliseconds: 13 },
+   { minuts: 10, seconds: 10, milliseconds: 13 },
+   { minuts: 10, seconds: 10, milliseconds: 13 },
+   { minuts: 10, seconds: 10, milliseconds: 13 },
 ];
 
 function timeSort(array) {
    const sortedArray = array.sort((a, b) => a.minuts - b.minuts);
 
-   console.log(sortedArray);
+   // console.log(sortedArray);
    const minutsSortedArray = [];
 
    for (let i = 0; i < sortedArray.length; i++) {
@@ -95,7 +95,25 @@ function timeSort(array) {
          minutsSortedArray.push(sortedArray[i]);
       }
    }
-   return minutsSortedArray;
+
+   if (minutsSortedArray.length === 5) {
+      return minutsSortedArray;
+   }
+   const secondsSortedArray = [];
+
+   for (let i = 0; i < minutsSortedArray.length; i++) {
+      if (minutsSortedArray[i].seconds <= minutsSortedArray[4].seconds) {
+         secondsSortedArray.push(minutsSortedArray[i]);
+      }
+   }
+
+   if (secondsSortedArray.length === 5) {
+      return secondsSortedArray;
+   }
+
+   const millisecondsSortedArray = secondsSortedArray.sort((a, b) => a.milliseconds - b.milliseconds);
+
+   return millisecondsSortedArray.slice(0, 5);
 }
 
 // return sortedArray.slice(0, 5);
