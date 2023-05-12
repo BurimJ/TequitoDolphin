@@ -70,3 +70,33 @@ function isCrawl(array) {
 }
 
 console.log(isCrawl(madeUpArray));
+
+const tider = [
+   { minuts: 14, seconds: 10, milliseconds: 10 },
+   { minuts: 10, seconds: 10, milliseconds: 10 },
+   { minuts: 12, seconds: 10, milliseconds: 10 },
+   { minuts: 11, seconds: 10, milliseconds: 10 },
+   { minuts: 11, seconds: 10, milliseconds: 10 },
+   { minuts: 11, seconds: 10, milliseconds: 10 },
+   { minuts: 12, seconds: 10, milliseconds: 10 },
+   { minuts: 15, seconds: 10, milliseconds: 10 },
+   { minuts: 16, seconds: 10, milliseconds: 10 },
+   { minuts: 13, seconds: 10, milliseconds: 10 },
+];
+
+function timeSort(array) {
+   const sortedArray = array.sort((a, b) => a.minuts - b.minuts);
+
+   console.log(sortedArray);
+   const minutsSortedArray = [];
+
+   for (let i = 0; i < sortedArray.length; i++) {
+      if (sortedArray[i].minuts <= sortedArray[4].minuts) {
+         minutsSortedArray.push(sortedArray[i]);
+      }
+   }
+   return minutsSortedArray;
+}
+
+// return sortedArray.slice(0, 5);
+console.log(timeSort(tider));
