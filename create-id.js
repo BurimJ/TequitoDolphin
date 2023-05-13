@@ -87,7 +87,6 @@ const tider = [
 function timeSort(array) {
    const sortedArray = array.sort((a, b) => a.minuts - b.minuts);
 
-   // console.log(sortedArray);
    const minutsSortedArray = [];
 
    for (let i = 0; i < sortedArray.length; i++) {
@@ -99,6 +98,7 @@ function timeSort(array) {
    if (minutsSortedArray.length === 5) {
       return minutsSortedArray;
    }
+
    const secondsSortedArray = [];
 
    for (let i = 0; i < minutsSortedArray.length; i++) {
@@ -116,5 +116,4 @@ function timeSort(array) {
    return millisecondsSortedArray.slice(0, 5);
 }
 
-// return sortedArray.slice(0, 5);
 console.log(timeSort(tider));
