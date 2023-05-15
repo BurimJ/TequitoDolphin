@@ -11,11 +11,17 @@
    <body>
       <!-- Nav Bar with custom links -->
       <!-- The href must match with an id of a view (section) -->
-      <header>Homie APP</header>
+      <header>                 
+            <button id="btn__add-member" class="btn__style"> Add a Member</button>
+
+               <button id="btn__add-competitor" class="btn__style"> Add a Competitor</button>
+</header>
       <!-- Views -->
       <!-- All views (sections) must have an id -->
       <main>
+         
          <nav>
+
             <a href="#home" class="view-link">Home</a>
             <a href="#members " class="view-link">Members</a>
             <a href="#competition" class="view-link">Competition</a>
@@ -234,5 +240,7 @@
       </footer>
       <script src="app.js" type="module"></script>
       <script src="create-id.js"></script>
+   <script src="create-member.js"></script>
+   <script src="create-competitor.js"></script>
    </body>
 </html>
