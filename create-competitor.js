@@ -1,7 +1,6 @@
 "use strict";
 
 console.log("yo");
-let modalOpen = false;
 
 function showAddCompetitorDialog() {
   modalOpen = true;
