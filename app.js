@@ -2,7 +2,11 @@ import { initViews } from "./view-router.js";
 
 window.addEventListener("load", initApp);
 
+const endpoint = "https://semesterprojekt-790e8-default-rtdb.europe-west1.firebasedatabase.app/";
+
 function initApp() {
+
+  
   console.log("app.js is running 🎉");
   initViews();
   document.querySelector("#btn__add-member").addEventListener("click", showAddMemberDialog);
