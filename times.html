@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="app.css" />
+      <title>Times</title>
+   </head>
+   <body>
+      <h1>Competition times</h1>
+      <button id="btn-add-time">Add Time</button>
+
+      <div id="times"></div>
+
+        <!-- add competitive time -->
+
+      <dialog id="dialog-for-time">
+         <form id="form-for-time">
+            <h3> Add a competitive time</h3>
+            <section id="personal-information-t">
+               <label>First Name <input type="text" id="firstNameTime"></label></br></br>
+               <label>Last Name <input type="text" id="lastNameTime"></label></br></br>
+               <label>Age <input type="number" id="ageTime"></label></br></br>
+               <!-- Eller vi kan gøre det gennem et ID, hvis vi får tid. -->
+               <!-- <label>Enter your club-id <input type="text" id="id-t"></label></br></br> -->
+            </section>
+            <section id="discipline-information-t">
+               <label> Choose your discipline</br></br>
+               <select id="distanceTime">
+                  <option>50 m (Short distance)</option>
+                  <option>200 m (Medium distance)</option>
+                  <option>1000 m (Long distance)</option>
+               </select>
+               <select id="disciplineTime">
+                  <option>Crawl</option>
+                  <option>Backstroke</option>
+                  <option>Breatstroke</option>
+                  <option>Butterfly</option>
+                  <option>Free</option>
+               </select></br></br>
+               </label>
+            </section>
+            <section id="time-information-t">
+               <label>Time 
+                  <input type="number" id="minutsTime">
+                  <input type="number" id="secondsTime">
+                  <input type="number" id="millisecondsTime">
+               </label></br></br>
+               <label><input type="checkbox" id="personal-record-t"> Personal record</label></br></br>
+            </section>
+            <section class="buttons">
+              <button class="btn__style">Submit</button>
+              <button class="btn__style">Reset</button>
+              <button class="btn__style">Close</button>
+            </section>
+         </form>
+      </dialog>
+
+    <!-- dialog - delete post -->
+
+    <dialog id="dialog-delete-time">
+        <h2>Are you sure you want to delete this time?</h2>
+        <form method="dialog" id="form-delete-time">
+            <button class="btn__style">No</button>
+            <button class="btn__style">Yes</button>
+        </form>
+    </dialog>
+
+      <script src="create-time.js"></script>
+   </body>
+</html>

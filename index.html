@@ -15,6 +15,8 @@
             <button id="btn__add-member" class="btn__style"> Add a Member</button>
 
                <button id="btn__add-competitor" class="btn__style"> Add a Competitor</button>
+
+            <button id="btn-add-time" class="btn__style"> Add time </button>
 </header>
       <!-- Views -->
       <!-- All views (sections) must have an id -->
@@ -236,20 +238,20 @@
          <form id="form-for-time">
             <h3> Add a competitive time</h3>
             <section id="personal-information-t">
-               <label>First Name <input type="text" id="first-name-t"></label></br></br>
-               <label>Last Name <input type="text" id="last-name-t"></label></br></br>
-               <label>Age <input type="number" id="age-t"></label></br></br>
+               <label>First Name <input type="text" id="firstNameTime"></label></br></br>
+               <label>Last Name <input type="text" id="lastNameTime"></label></br></br>
+               <label>Age <input type="number" id="ageTime"></label></br></br>
                <!-- Eller vi kan gøre det gennem et ID, hvis vi får tid. -->
                <!-- <label>Enter your club-id <input type="text" id="id-t"></label></br></br> -->
             </section>
             <section id="discipline-information-t">
                <label> Choose your discipline</br></br>
-               <select id="distance-t">
+               <select id="distanceTime">
                   <option>50 m (Short distance)</option>
                   <option>200 m (Medium distance)</option>
                   <option>1000 m (Long distance)</option>
                </select>
-               <select id="discipline-t">
+               <select id="disciplineTime">
                   <option>Crawl</option>
                   <option>Backstroke</option>
                   <option>Breatstroke</option>
@@ -260,9 +262,9 @@
             </section>
             <section id="time-information-t">
                <label>Time 
-                  <input type="number" id="minuts-t">
-                  <input type="number" id="seconds-t">
-                  <input type="number" id="milliseconds-t">
+                  <input type="number" id="minutsTime">
+                  <input type="number" id="secondsTime">
+                  <input type="number" id="millisecondsTime">
                </label></br></br>
                <label><input type="checkbox" id="personal-record-t"> Personal record</label></br></br>
             </section>
