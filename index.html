@@ -4,341 +4,336 @@
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="stylesheet" href="app.css" />
-      <title>Simple SPA - Tabs</title>
+      <link rel="stylesheet" href="/app/style/app.css" />
+      <title>The Dolphin Swimming</title>
    </head>
 
    <body>
       <!-- Nav Bar with custom links -->
       <!-- The href must match with an id of a view (section) -->
-      <header>                 
+      <header>
             <button id="btn__add-member" class="btn__style"> Add a Member</button>
 
                <button id="btn__add-competitor" class="btn__style"> Add a Competitor</button>
 </header>
       <!-- Views -->
       <!-- All views (sections) must have an id -->
-      <main>
-         
-         <nav>
+   <main>
+      <nav>
+         <a href="#home" class="view-link">Home</a>
+         <a href="#members " class="view-link">Members</a>
+         <a href="#competition" class="view-link">Competition</a>
+         <a href="#payments" class="view-link">Payments</a>
+      </nav>
+      <!-- Home View -->
+      <!-- Route: #home -->
+      <div id="innerBody">
+         <section id="home" class="view-content">
+            <h2>Home</h2>
+            <p>Home is where you can lay down 💛</p>
+            <p>Jamie, pull it up</p>
+         </section>
 
-            <a href="#home" class="view-link">Home</a>
-            <a href="#members " class="view-link">Members</a>
-            <a href="#competition" class="view-link">Competition</a>
-            <a href="#payments" class="view-link">Payments</a>
-         </nav>
-         <!-- Home View -->
-         <!-- Route: #home -->
-         <div id="innerBody">
-            <section id="home" class="view-content">
-               <h2>Home</h2>
-               <p>Home is where you can lay down 💛</p>
-               <p>Jamie, pull it up</p>
-            </section>
+         <!-- News View -->
+         <!-- Route: #news -->
+         <section id="members" class="view-content">
+            <h2>members</h2>
+            <p>Some members are slacking 🎉</p>
+         </section>
 
-            <!-- News View -->
-            <!-- Route: #news -->
-            <section id="members" class="view-content">
-               <h2>members</h2>
-               <p>Some members are slacking 🎉</p>
-            </section>
+         <!-- About View -->
+         <!-- Route: #about -->
+         <section id="competition" class="view-content">
+            <article class="competitors__item">
+               <h3>First Name: <h3>
+               <h3>Last Name: <h3>
+               <h3>Age: <h3>
+               <h3>Team: <h3>
+               <h3>Payment: <h3>
+               <h3>Distance: <h3>
+               <button id="btn-update-competitor" class="btn__style">Update competitor</button>
+               <button id="btn-delete-competitor" class="btn__style">Delete competitor</button>
+            </article>
+            <article class="competitors__item">
+               <h3>First Name: <h3>
+               <h3>Last Name: <h3>
+               <h3>Age: <h3>
+               <h3>Team: <h3>
+               <h3>Payment: <h3>
+               <h3>Distance: <h3>
+               <button id="btn-update-competitor" class="btn__style">Update competitor</button>
+               <button id="btn-delete-competitor" class="btn__style">Delete competitor</button>
+            </article>
+         </section>
 
-            <!-- About View -->
-            <!-- Route: #about -->
-            <section id="competition" class="view-content">
-             
-    <article class="competitors__item">
-            <h3>First Name: <h3>
-            <h3>Last Name: <h3>
-            <h3>Age: <h3>
-            <h3>Team: <h3>
-            <h3>Payment: <h3>
-            <h3>Distance: <h3>
-            <button id="btn-update-competitor" class="btn__style">Update competitor</button>
-            <button id="btn-delete-competitor" class="btn__style">Delete competitor</button>
-        </article>
- <article class="competitors__item">
-            <h3>First Name: <h3>
-            <h3>Last Name: <h3>
-            <h3>Age: <h3>
-            <h3>Team: <h3>
-            <h3>Payment: <h3>
-            <h3>Distance: <h3>
-            <button id="btn-update-competitor" class="btn__style">Update competitor</button>
-            <button id="btn-delete-competitor" class="btn__style">Delete competitor</button>
-        </article>
-            </section>
+         <!-- Contact View -->
+         <!-- Route: #contact -->
+         <section id="payments" class="view-content">
+            <h2>Payments</h2>
+            <p>go get the paper ☕️</p>
+            <p>rich flex 🤷🏼‍♂️</p>
+         </section>
 
-            <!-- Contact View -->
-            <!-- Route: #contact -->
-            <section id="payments" class="view-content">
-               <h2>Payments</h2>
-               <p>go get the paper ☕️</p>
-               <p>rich flex 🤷🏼‍♂️</p>
-            </section>
-
-            <!-- Contact View -->
-            <section id="contact" class="view-content">
-               <h2>Contact</h2>
-               <p>do you know da way? 🤷🏼‍♂️</p>
-            </section>
-         </div>
-     
-      </main>
+         <!-- Contact View -->
+         <section id="contact" class="view-content">
+            <h2>Contact</h2>
+            <p>do you know da way? 🤷🏼‍♂️</p>
+         </section>
+      </div>
+   </main>
 
       <!-- dialog and form for normal membership -->
 
-      <dialog id="dialog-for-member">
-         <form id="form-for-member">
-          <h3>Add member</h3>
-          <p id="obs-m">If you are a competitor, please use the "add competitor" button instead.</p></br>
-            <section id="personal-information-m">
-               <label>First Name <input type="text" id="first-name-m" /></label></br></br>
-               <label>Last Name <input type="text" id="last-name-m" /></label></br></br>
-               <label>Age <input type="number" id="age-m" /></label></br></br>
-               <label>Birthdate <input type="date" id="birthdate-m"/></label></br></br>
-            </section>
-            <section id="club-information-m">
-               <label>My Team
-                <select id="team-m">
+   <dialog id="dialog-for-member">
+      <form id="form-for-member">
+         <h3>Add member</h3>
+         <p id="obs-m">If you are a competitor, please use the "add competitor" button instead.</p></br>
+         <section id="personal-information-m">
+            <label>First Name <input type="text" id="first-name-m" /></label></br></br>
+            <label>Last Name <input type="text" id="last-name-m" /></label></br></br>
+            <label>Age <input type="number" id="age-m" /></label></br></br>
+            <label>Birthdate <input type="date" id="birthdate-m"/></label></br></br>
+         </section>
+         <section id="club-information-m">
+            <label>My Team
+               <select id="team-m">
                   <option>Junior</option>
                   <option>Senior</option>
-                </select>
-               </label></br></br>
-               <p id="payment-info-m"> Casual swimming only allowed outside practice times. </p>
-               <label>My payment method
-                  <select id="payment-m">
-                     <option>1 time a week</option>
-                     <option>Up to 3 times a week</option>
-                     <option>Up to 5 times a week</option>
-                  </select></br></br>
-               </label>
-            </section>
-            <section class="buttons">
-             <button class="btn__style">Submit</button>
-              <button class="btn__style">Reset</button>
-              <button class="btn__style">Close</button>
-            </section>
-         </form>
-      </dialog>
+               </select>
+            </label></br></br>
+            <p id="payment-info-m"> Casual swimming only allowed outside practice times. </p>
+            <label>My payment method
+               <select id="payment-m">
+                  <option>1 time a week</option>
+                  <option>Up to 3 times a week</option>
+                  <option>Up to 5 times a week</option>
+               </select></br></br>
+            </label>
+         </section>
+         <section class="buttons">
+            <button class="btn__style">Submit</button>
+            <button class="btn__style">Reset</button>
+            <button class="btn__style">Close</button>
+         </section>
+      </form>
+   </dialog>
 
       <!-- dialog and form for updating member -->
-   
-      <dialog id="dialog-for-member-update">
-         <form id="form-for-member-update">
-          <h3>Update member</h3>
-          <p id="obs-m-u">If you are a competitor, please use the "add competitor" button instead.</p></br>
-            <section id="personal-information-m-u">
-               <label>First Name <input type="text" id="first-name-m-u" /></label></br></br>
-               <label>Last Name <input type="text" id="last-name-m-u" /></label></br></br>
-               <label>Age <input type="number" id="age-m-u" /></label></br></br>
-               <label>Birthdate <input type="date" id="birthdate-m-u"/></label></br></br>
-            </section>
-            <section id="club-information-m-u">
-               <label>My Team
-                <select id="team-m-u">
+
+   <dialog id="dialog-for-member-update">
+      <form id="form-for-member-update">
+         <h3>Update member</h3>
+         <p id="obs-m-u">If you are a competitor, please use the "add competitor" button instead.</p></br>
+         <section id="personal-information-m-u">
+            <label>First Name <input type="text" id="first-name-m-u" /></label></br></br>
+            <label>Last Name <input type="text" id="last-name-m-u" /></label></br></br>
+            <label>Age <input type="number" id="age-m-u" /></label></br></br>
+            <label>Birthdate <input type="date" id="birthdate-m-u"/></label></br></br>
+         </section>
+         <section id="club-information-m-u">
+            <label>My Team
+               <select id="team-m-u">
                   <option>Junior</option>
                   <option>Senior</option>
-                </select>
-               </label></br></br>
-               <p id="payment-info-m-u"> Casual swimming only allowed outside practice times. </p>
-               <label>My payment method
-                  <select id="payment-m-u">
-                     <option>1 time a week</option>
-                     <option>Up to 3 times a week</option>
-                     <option>Up to 5 times a week</option>
-                  </select></br></br>
-               </label>
-            </section>
-            <section class="buttons">
-             <button class="btn__style">Submit</button>
-              <button class="btn__style">Reset</button>
-              <button class="btn__style">Close</button>
-            </section>
-         </form>
-      </dialog>
+               </select>
+            </label></br></br>
+            <p id="payment-info-m-u"> Casual swimming only allowed outside practice times. </p>
+            <label>My payment method
+               <select id="payment-m-u">
+                  <option>1 time a week</option>
+                  <option>Up to 3 times a week</option>
+                  <option>Up to 5 times a week</option>
+               </select></br></br>
+            </label>
+         </section>
+         <section class="buttons">
+            <button class="btn__style">Submit</button>
+            <button class="btn__style">Reset</button>
+            <button class="btn__style">Close</button>
+         </section>
+      </form>
+   </dialog>
 
       <!-- dialog and form for competititve swimmers -->
 
-      <dialog id="dialog-for-competitor">
-        <form id="form-for-competitor">
-         <h3>Add competitor</h3>
-         <p id="obs-m">If you are NOT competing, please use the "add member" button instead.</p></br>
-            <section id="personal-information-c">
-               <label>First Name <input type="text" id="first-name-c" /></label></br></br>
-               <label>Last Name <input type="text" id="last-name-c" /></label></br></br>
-               <label>Age <input type="number" id="age-c" /></label></br></br>
-               <label>Birthdate <input type="date" id="birthdate-c"/></label></br></br>
-            </section>
-            <section id="club-information-c">
-               <label>My Team
-                <select id="team-c">
-                  <option>Junior competitor</option>
-                  <option>Senior competitor</option>
-                </select>
-               </label></br></br>
-               <label>My payment method
-                  <select id="payment-m">
-                     <option>Junior team</option>
-                     <option>Senior team</option>
-                  </select></br></br>
-               </label>
-            </section>
-            <section id="preferences-c">
-               <label>My primary distance</br></br>
-                  <label><input type="radio" name="options-c" id="sprinter-c" value="Sprinter"> Sprinter</label></br>
-                  <label><input type="radio" name="options-c" id="medium-distance-c" value="Medium distance"> Medium distance</label></br>
-                  <label><input type="radio" name="options-c" id="long-distance-c" value="Long distance"> Long distance</label></br></br></br>
-               </label>
-            </section>
-            <section class="buttons">
-              <button class="btn__style">Submit</button>
-              <button class="btn__style">Reset</button>
-              <button class="btn__style">Close</button>
-            </section>
-         </form>
-      </dialog>
+   <dialog id="dialog-for-competitor">
+      <form id="form-for-competitor">
+      <h3>Add competitor</h3>
+      <p id="obs-m">If you are NOT competing, please use the "add member" button instead.</p></br>
+         <section id="personal-information-c">
+            <label>First Name <input type="text" id="first-name-c" /></label></br></br>
+            <label>Last Name <input type="text" id="last-name-c" /></label></br></br>
+            <label>Age <input type="number" id="age-c" /></label></br></br>
+            <label>Birthdate <input type="date" id="birthdate-c"/></label></br></br>
+         </section>
+         <section id="club-information-c">
+            <label>My Team
+               <select id="team-c">
+               <option>Junior competitor</option>
+               <option>Senior competitor</option>
+               </select>
+            </label></br></br>
+            <label>My payment method
+               <select id="payment-m">
+                  <option>Junior team</option>
+                  <option>Senior team</option>
+               </select></br></br>
+            </label>
+         </section>
+         <section id="preferences-c">
+            <label>My primary distance</br></br>
+               <label><input type="radio" name="options-c" id="sprinter-c" value="Sprinter"> Sprinter</label></br>
+               <label><input type="radio" name="options-c" id="medium-distance-c" value="Medium distance"> Medium distance</label></br>
+               <label><input type="radio" name="options-c" id="long-distance-c" value="Long distance"> Long distance</label></br></br></br>
+            </label>
+         </section>
+         <section class="buttons">
+            <button class="btn__style">Submit</button>
+            <button class="btn__style">Reset</button>
+            <button class="btn__style">Close</button>
+         </section>
+      </form>
+   </dialog>
 
       <!-- dialog and form for competitive swimmers update -->
 
-      <dialog id="dialog-for-competitor-update">
-        <form id="form-for-competitor-update">
-         <h3>Update competitor</h3>
-         <p id="obs-m-u">If you are NOT competing, please use the "add member" button instead.</p></br>
-            <section id="personal-information-c-u">
-               <label>First Name <input type="text" id="first-name-c-u" /></label></br></br>
-               <label>Last Name <input type="text" id="last-name-c-u" /></label></br></br>
-               <label>Age <input type="number" id="age-c-u" /></label></br></br>
-               <label>Birthdate <input type="date" id="birthdate-c-u"/></label></br></br>
-            </section>
-            <section id="club-information-c-u">
-               <label>My Team
-                <select id="team-c-u">
-                  <option>Junior competitor</option>
-                  <option>Senior competitor</option>
-                </select>
-               </label></br></br>
-               <label>My payment method
-                  <select id="payment-m-u">
-                     <option>Junior team</option>
-                     <option>Senior team</option>
-                  </select></br></br>
-               </label>
-            </section>
-            <section id="preferences-c-u">
-               <label>My primary distance</br></br>
-                  <label><input type="radio" name="options-c-u" id="sprinter-c-u" value="Sprinter"> Sprinter</label></br>
-                  <label><input type="radio" name="options-c-u" id="medium-distance-c-u" value="Medium distance"> Medium distance</label></br>
-                  <label><input type="radio" name="options-c-u" id="long-distance-c-u" value="Long distance"> Long distance</label></br></br></br>
-               </label>
-            </section>
-            <section class="buttons">
-              <button class="btn__style">Submit</button>
-              <button class="btn__style">Reset</button>
-              <button class="btn__style">Close</button>
-            </section>
-         </form>
-      </dialog>
+   <dialog id="dialog-for-competitor-update">
+      <form id="form-for-competitor-update">
+      <h3>Update competitor</h3>
+      <p id="obs-m-u">If you are NOT competing, please use the "add member" button instead.</p></br>
+         <section id="personal-information-c-u">
+            <label>First Name <input type="text" id="first-name-c-u" /></label></br></br>
+            <label>Last Name <input type="text" id="last-name-c-u" /></label></br></br>
+            <label>Age <input type="number" id="age-c-u" /></label></br></br>
+            <label>Birthdate <input type="date" id="birthdate-c-u"/></label></br></br>
+         </section>
+         <section id="club-information-c-u">
+            <label>My Team
+               <select id="team-c-u">
+               <option>Junior competitor</option>
+               <option>Senior competitor</option>
+               </select>
+            </label></br></br>
+            <label>My payment method
+               <select id="payment-m-u">
+                  <option>Junior team</option>
+                  <option>Senior team</option>
+               </select></br></br>
+            </label>
+         </section>
+         <section id="preferences-c-u">
+            <label>My primary distance</br></br>
+               <label><input type="radio" name="options-c-u" id="sprinter-c-u" value="Sprinter"> Sprinter</label></br>
+               <label><input type="radio" name="options-c-u" id="medium-distance-c-u" value="Medium distance"> Medium distance</label></br>
+               <label><input type="radio" name="options-c-u" id="long-distance-c-u" value="Long distance"> Long distance</label></br></br></br>
+            </label>
+         </section>
+         <section class="buttons">
+            <button class="btn__style">Submit</button>
+            <button class="btn__style">Reset</button>
+            <button class="btn__style">Close</button>
+         </section>
+      </form>
+   </dialog>
 
       <!-- add competitive time -->
 
-      <dialog id="dialog-for-time">
-         <form id="form-for-time">
-            <h3> Add a competitive time</h3>
-            <section id="personal-information-t">
-               <label>First Name <input type="text" id="first-name-t"></label></br></br>
-               <label>Last Name <input type="text" id="last-name-t"></label></br></br>
-               <label>Age <input type="number" id="age-t"></label></br></br>
-               <!-- Eller vi kan gøre det gennem et ID, hvis vi får tid. -->
-               <!-- <label>Enter your club-id <input type="text" id="id-t"></label></br></br> -->
-            </section>
-            <section id="discipline-information-t">
-               <label> Choose your discipline</br></br>
-               <select id="distance-t">
-                  <option>50 m (Short distance)</option>
-                  <option>200 m (Medium distance)</option>
-                  <option>1000 m (Long distance)</option>
-               </select>
-               <select id="discipline-t">
-                  <option>Crawl</option>
-                  <option>Backstroke</option>
-                  <option>Breatstroke</option>
-                  <option>Butterfly</option>
-                  <option>Free</option>
-               </select></br></br>
-               </label>
-            </section>
-            <section id="time-information-t">
-               <label>Time 
-                  <input type="number" id="minuts-t">
-                  <input type="number" id="seconds-t">
-                  <input type="number" id="milliseconds-t">
-               </label></br></br>
-               <label><input type="checkbox" id="personal-record-t"> Personal record</label></br></br>
-            </section>
-            <section class="buttons">
-              <button class="btn__style">Submit</button>
-              <button class="btn__style">Reset</button>
-              <button class="btn__style">Close</button>
-            </section>
-         </form>
-      </dialog>
+   <dialog id="dialog-for-time">
+      <form id="form-for-time">
+         <h3> Add a competitive time</h3>
+         <section id="personal-information-t">
+            <label>First Name <input type="text" id="first-name-t"></label></br></br>
+            <label>Last Name <input type="text" id="last-name-t"></label></br></br>
+            <label>Age <input type="number" id="age-t"></label></br></br>
+            <!-- Eller vi kan gøre det gennem et ID, hvis vi får tid. -->
+            <!-- <label>Enter your club-id <input type="text" id="id-t"></label></br></br> -->
+         </section>
+         <section id="discipline-information-t">
+            <label> Choose your discipline</br></br>
+            <select id="distance-t">
+               <option>50 m (Short distance)</option>
+               <option>200 m (Medium distance)</option>
+               <option>1000 m (Long distance)</option>
+            </select>
+            <select id="discipline-t">
+               <option>Crawl</option>
+               <option>Backstroke</option>
+               <option>Breatstroke</option>
+               <option>Butterfly</option>
+               <option>Free</option>
+            </select></br></br>
+            </label>
+         </section>
+         <section id="time-information-t">
+            <label>Time
+               <input type="number" id="minuts-t">
+               <input type="number" id="seconds-t">
+               <input type="number" id="milliseconds-t">
+            </label></br></br>
+            <label><input type="checkbox" id="personal-record-t"> Personal record</label></br></br>
+         </section>
+         <section class="buttons">
+            <button class="btn__style">Submit</button>
+            <button class="btn__style">Reset</button>
+            <button class="btn__style">Close</button>
+         </section>
+      </form>
+   </dialog>
 
       <!-- update competitive time -->
 
-      <dialog id="dialog-for-time-update">
-         <form id="form-for-time-update">
-            <h3> Update a competitive time</h3>
-            <section id="personal-information-t-u">
-               <label>First Name <input type="text" id="first-name-t-u"></label></br></br>
-               <label>Last Name <input type="text" id="last-name-t-u"></label></br></br>
-               <label>Age <input type="number" id="age-t-u"></label></br></br>
-               <!-- Eller vi kan gøre det gennem et ID, hvis vi får tid. -->
-               <!-- <label>Enter your club-id <input type="text" id="id-t-u"></label></br></br> -->
-            </section>
-            <section id="discipline-information-t-u">
-               <label> Choose your discipline</br></br>
-               <select id="distance-t-u">
-                  <option>50 m (Short distance)</option>
-                  <option>200 m (Medium distance)</option>
-                  <option>1000 m (Long distance)</option>
-               </select>
-               <select id="discipline-t-u">
-                  <option>Crawl</option>
-                  <option>Backstroke</option>
-                  <option>Breatstroke</option>
-                  <option>Butterfly</option>
-                  <option>Free</option>
-               </select></br></br>
-               </label>
-            </section>
-            <section id="time-information-t-u">
-               <label>Time 
-                  <input type="number" id="minuts-t-u">
-                  <input type="number" id="seconds-t-u">
-                  <input type="number" id="milliseconds-t-u">
-               </label></br></br>
-               <label><input type="checkbox" id="personal-record-t-u"> Personal record</label></br></br>
-            </section>
-            <section class="buttons">
-              <button class="btn__style">Submit</button>
-              <button class="btn__style">Reset</button>
-              <button class="btn__style">Close</button>
-            </section>
-         </form>
-      </dialog>
+   <dialog id="dialog-for-time-update">
+      <form id="form-for-time-update">
+         <h3> Update a competitive time</h3>
+         <section id="personal-information-t-u">
+            <label>First Name <input type="text" id="first-name-t-u"></label></br></br>
+            <label>Last Name <input type="text" id="last-name-t-u"></label></br></br>
+            <label>Age <input type="number" id="age-t-u"></label></br></br>
+            <!-- Eller vi kan gøre det gennem et ID, hvis vi får tid. -->
+            <!-- <label>Enter your club-id <input type="text" id="id-t-u"></label></br></br> -->
+         </section>
+         <section id="discipline-information-t-u">
+            <label> Choose your discipline</br></br>
+            <select id="distance-t-u">
+               <option>50 m (Short distance)</option>
+               <option>200 m (Medium distance)</option>
+               <option>1000 m (Long distance)</option>
+            </select>
+            <select id="discipline-t-u">
+               <option>Crawl</option>
+               <option>Backstroke</option>
+               <option>Breatstroke</option>
+               <option>Butterfly</option>
+               <option>Free</option>
+            </select></br></br>
+            </label>
+         </section>
+         <section id="time-information-t-u">
+            <label>Time
+               <input type="number" id="minuts-t-u">
+               <input type="number" id="seconds-t-u">
+               <input type="number" id="milliseconds-t-u">
+            </label></br></br>
+            <label><input type="checkbox" id="personal-record-t-u"> Personal record</label></br></br>
+         </section>
+         <section class="buttons">
+            <button class="btn__style">Submit</button>
+            <button class="btn__style">Reset</button>
+            <button class="btn__style">Close</button>
+         </section>
+      </form>
+   </dialog>
 
-
-      <footer>
-         <div id="left-wrap">
-            <p>Monday-Friday: 09:00 - 19:00</p>
-            <p>Saturday: 09:00 - 15:00</p>
-            <p>Sunday: Closed</p>
-         </div>
-         <a href="#contact" class="view-link">Contact</a>
-      </footer>
-      <script src="app.js" type="module"></script>
-      <script src="create-id.js"></script>
+   <footer>
+      <div id="left-wrap">
+         <p>Monday-Friday: 09:00 - 19:00</p>
+         <p>Saturday: 09:00 - 15:00</p>
+         <p>Sunday: Closed</p>
+      </div>
+      <a href="#contact" class="view-link">Contact</a>
+   </footer>
+   <script src="app.js" type="module"></script>
+   <script src="create-id.js"></script>
    <script src="create-member.js"></script>
    <script src="create-competitor.js"></script>
    </body>

@@ -1,4 +1,4 @@
-import { initViews } from "./view-router.js";
+import { initViews } from "/view-router.js";
 
 window.addEventListener("load", initApp);
 
