@@ -11,15 +11,23 @@
 
 #loginBody {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  width: 100vw;
 }
 
 #loginForm {
   border: 7px solid pink;
+  width: 50%;
 }
 #loginImage {
+  display: flex;
+  justify-content: flex-start;
   border: 4px solid pink;
+  width: 10%;
+}
+
+img {
+  width: 50vw;
+  height: 100vh;
 }
 
 .btn__style {
@@ -122,7 +130,7 @@ main {
 body,
 html {
   color: var(--text-color-dark);
-  height: 100%;
+  width: 100vw;
   padding: 0;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
