@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/app/style/app.css" />
     <title>Login Dolphins</title>
   </head>
-  <body>
+  <body id="loginBody">
     <dialog open id="loginForm">
       <h1>Login</h1>
       <label for="email">Email:</label>
@@ -16,6 +17,13 @@
       <button id="buttonLogin" type="submit">Submit</button>
       <div id="loginError" style="display: none"></div>
     </dialog>
+    <div id="loginImage">
+      <img
+        src="https://images.pexels.com/photos/932320/pexels-photo-932320.jpeg"
+        alt=""
+        srcset=""
+      />
+    </div>
     <script src="/app/js/login.js"></script>
   </body>
 </html>
