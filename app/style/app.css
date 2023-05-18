@@ -7,6 +7,7 @@
   --text-color-dark: #333;
   --text-color-danger: rgb(152, 58, 58);
   --white: #f1f1f1;
+  --font-family: "Poppins", sans-serif;
 }
 
 .btn__style {
@@ -23,7 +24,6 @@
   cursor: pointer;
   display: inline-flex;
   /* font-family: "JetBrains Mono", monospace; */
-  font-family: "Poppins", sans-serif;
   height: 48px;
   justify-content: center;
   line-height: 1;
@@ -112,7 +112,7 @@ html {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family);
   background-color: var(--light-green);
 }
 
