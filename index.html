@@ -17,11 +17,10 @@
                <button id="btn__add-competitor" class="btn__style"> Add a Competitor</button>
 
             <button id="btn-add-time" class="btn__style"> Add time </button>
-</header>
+      </header>
       <!-- Views -->
       <!-- All views (sections) must have an id -->
       <main>
-         
          <nav>
 
             <a href="#home" class="view-link">Home</a>
@@ -41,34 +40,15 @@
             <!-- News View -->
             <!-- Route: #news -->
             <section id="members" class="view-content">
-               <h2>members</h2>
-               <p>Some members are slacking 🎉</p>
+               <div id="membersInsert">members</div>
+               <p>Some messbers are slacking 🎉</p>
             </section>
 
             <!-- About View -->
             <!-- Route: #about -->
             <section id="competition" class="view-content">
-             
-    <article class="competitors__item">
-            <h3>First Name: <h3>
-            <h3>Last Name: <h3>
-            <h3>Age: <h3>
-            <h3>Team: <h3>
-            <h3>Payment: <h3>
-            <h3>Distance: <h3>
-            <button id="btn-update-competitor" class="btn__style">Update competitor</button>
-            <button id="btn-delete-competitor" class="btn__style">Delete competitor</button>
-        </article>
- <article class="competitors__item">
-            <h3>First Name: <h3>
-            <h3>Last Name: <h3>
-            <h3>Age: <h3>
-            <h3>Team: <h3>
-            <h3>Payment: <h3>
-            <h3>Distance: <h3>
-            <button id="btn-update-competitor" class="btn__style">Update competitor</button>
-            <button id="btn-delete-competitor" class="btn__style">Delete competitor</button>
-        </article>
+                <div id="competitorsInsert"></div>
+           
             </section>
 
             <!-- Contact View -->
@@ -117,7 +97,7 @@
                </label>
             </section>
             <section class="buttons">
-             <button class="btn__style">Submit</button>
+               <input type="submit" name="btn__style" id="btn__style" class="btn__style" value="Add Member">
               <button class="btn__style">Reset</button>
               <button class="btn__style">Close</button>
             </section>
@@ -194,7 +174,7 @@
                </label>
             </section>
             <section class="buttons">
-              <button class="btn__style">Submit</button>
+                <input type="submit" name="btn__style" id="btn__style" class="btn__style" value="Add Competitor">
               <button class="btn__style">Reset</button>
               <button class="btn__style">Close</button>
             </section>
@@ -339,9 +319,11 @@
          </div>
          <a href="#contact" class="view-link">Contact</a>
       </footer>
-      <script src="app.js" type="module"></script>
-      <script src="create-id.js"></script>
+   <script src="app.js" type="module"></script>
+   <script src="create-id.js"></script>
    <script src="create-member.js"></script>
+   <script src="show-members.js"></script>
    <script src="create-competitor.js"></script>
+   <script src="show-competitors.js"></script>
    </body>
 </html>

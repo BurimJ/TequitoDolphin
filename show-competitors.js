@@ -1,8 +1,10 @@
 "use strict";
 
+const endpoint = "https://semesterprojekt-790e8-default-rtdb.europe-west1.firebasedatabase.app";
+
 let competitors;
 
-async function getcompetitors() {
+async function getCompetitors() {
   const response = await fetch(`${endpoint}/competitors.json`);
   const data = await response.json();
   const competitors = prepareData(data);
@@ -23,15 +25,15 @@ function showCompetitor(competitor) {
         </article>
     `;
 
-  document.querySelector("#competitors").insertAdjacentHTML("beforeend", html);
+  document.querySelector("#competitorsInsert").insertAdjacentHTML("beforeend", html);
 
   //event listeners to btns
-  document.querySelector("#competitors article:last-child #btn-update-competitor").addEventListener("click", () => updateClicked(competitor));
-  document.querySelector("#competitors article:last-child #btn-delete-competitor").addEventListener("click", () => deleteClicked(competitor));
+  document.querySelector("#competitorsInsert article:last-child #btn-update-competitor").addEventListener("click", () => updateClicked(competitor));
+  document.querySelector("#competitorsInsert article:last-child #btn-delete-competitor").addEventListener("click", () => deleteClicked(competitor));
 }
 
 function showcompetitors(allcompetitors) {
-  document.querySelector("#competitors").innerHTML = "";
+  document.querySelector("#competitorsInsert").innerHTML = "";
 
   for (const competitor of allcompetitors) {
     showCompetitor(competitor);
