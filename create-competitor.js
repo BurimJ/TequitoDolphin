@@ -106,7 +106,6 @@ function addCompetitorClicked(event) {
   addCompetitor();
   form.reset();
   document.querySelector("#dialog-for-competitor").close();
-  modalOpen = false;
 }
 
 function showAddCompetitorDialog() {
