@@ -1,5 +1,7 @@
 "use strict";
 
+const endpoint = "https://semesterprojekt-790e8-default-rtdb.europe-west1.firebasedatabase.app";
+
 let members;
 
 async function getMembers() {
@@ -23,15 +25,15 @@ function showMember(member) {
         </article>
     `;
 
-  document.querySelector("#members").insertAdjacentHTML("beforeend", html);
+  document.querySelector("#membersInsert").insertAdjacentHTML("beforeend", html);
 
   //event listeners to btns
-  document.querySelector("#members article:last-child #btn-update-member").addEventListener("click", () => updateClicked(member));
-  document.querySelector("#members article:last-child #btn-delete-member").addEventListener("click", () => deleteClicked(member));
+  document.querySelector("#membersInsert article:last-child #btn-update-member").addEventListener("click", () => updateClicked(member));
+  document.querySelector("#membersInsert article:last-child #btn-delete-member").addEventListener("click", () => deleteClicked(member));
 }
 
 function showMembers(allMembers) {
-  document.querySelector("#members").innerHTML = "";
+  document.querySelector("#membersInsert").innerHTML = "";
 
   for (const member of allMembers) {
     showMember(member);
