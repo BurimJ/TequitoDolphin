@@ -27,9 +27,11 @@ function start() {
 
    document.querySelector("#btn-add-time").addEventListener("click", showAddTimeModal);
    document.querySelector("#form-for-time").addEventListener("submit", addTimeClicked);
+   document.querySelector("#dialog-delete-time").addEventListener("submit", deleteTimeClicked);
 }
 
 let times;
+let competitors;
 
 // fetch
 
@@ -139,7 +141,7 @@ function deleteTimeClicked(event) {
    document.querySelector("#dialog-delete-time").close();
 }
 
-async function deletePost(id) {
+async function deleteTime(id) {
    const response = await fetch(`${endpoint}/times/${id}.json`, {
       method: "DELETE",
    });
@@ -164,3 +166,36 @@ const testArray = [
    { firstName: "Butterfly", time: 10.19 },
    { firstName: "Crawl", time: 10.2 },
 ];
+
+const testObjectID = [
+   {
+      firstName: "Frederikke",
+      lastName: "Vammen",
+      age: "21",
+      id: "frevam23-S",
+   },
+   {
+      firstName: "Frederikke",
+      lastName: "Andersen",
+      age: "21",
+      id: "frevam24-J",
+   },
+];
+
+// virker;
+
+function findID(idCompetitor) {
+   for (let i = 0; i < testObjectID.length; i++) {
+      if (idCompetitor === testObjectID[i].id) {
+         return testObjectID[i];
+      }
+   }
+}
+
+function competitorInformation(idCompetitor) {
+   const competitor = findID(idCompetitor);
+   return `${competitor.firstName}`;
+}
+
+// console.log(findID1("frevam23-S"));
+console.log(competitorInformation("frevam23-S"));
