@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="app.css" />
+      <title>Comp</title>
+   </head>
+   <body>
+     <header>                 
+      <button id="btn__add-competitor" class="btn__style"> Add a Competitor</button>
+      </header>
+      <div id="competitors">
+        <h2>here</h2>
+      </div>
+
+       <!-- dialog and form for competititve swimmers -->
+
+      <dialog id="dialog-for-competitor">
+        <form id="form-for-competitor">
+         <h3>Add competitor</h3>
+         <p id="obs-m">If you are NOT competing, please use the "add member" button instead.</p></br>
+            <section id="personal-information-c">
+               <label>First Name <input type="text" id="first-name-c" /></label></br></br>
+               <label>Last Name <input type="text" id="last-name-c" /></label></br></br>
+               <label>Age <input type="number" id="age-c" /></label></br></br>
+               <label>Birthdate <input type="date" id="birthdate-c"/></label></br></br>
+            </section>
+            <section id="club-information-c">
+               <label>My Team
+                <select id="team-c">
+                  <option>Junior competitor</option>
+                  <option>Senior competitor</option>
+                </select>
+               </label></br></br>
+               <label>My payment method
+                  <select id="payment-m">
+                     <option>Junior team</option>
+                     <option>Senior team</option>
+                  </select></br></br>
+               </label>
+            </section>
+            <section id="preferences-c">
+               <label>My primary distance</br></br>
+                  <label><input type="radio" name="options-c" id="sprinter-c" value="Sprinter"> Sprinter</label></br>
+                  <label><input type="radio" name="options-c" id="medium-distance-c" value="Medium distance"> Medium distance</label></br>
+                  <label><input type="radio" name="options-c" id="long-distance-c" value="Long distance"> Long distance</label></br></br></br>
+               </label>
+            </section>
+            <section class="buttons">
+                <input type="submit" name="btn__style" id="btn__style" class="btn__style" value="Add Competitor">
+              <button class="btn__style">Reset</button>
+              <button class="btn__style">Close</button>
+            </section>
+         </form>
+      </dialog>
+
+      <!-- dialog and form for competitive swimmers update -->
+
+      <dialog id="dialog-for-competitor-update">
+        <form id="form-for-competitor-update">
+         <h3>Update competitor</h3>
+         <p id="obs-m-u">If you are NOT competing, please use the "add member" button instead.</p></br>
+            <section id="personal-information-c-u">
+               <label>First Name <input type="text" id="first-name-c-u" /></label></br></br>
+               <label>Last Name <input type="text" id="last-name-c-u" /></label></br></br>
+               <label>Age <input type="number" id="age-c-u" /></label></br></br>
+               <label>Birthdate <input type="date" id="birthdate-c-u"/></label></br></br>
+            </section>
+            <section id="club-information-c-u">
+               <label>My Team
+                <select id="team-c-u">
+                  <option>Junior competitor</option>
+                  <option>Senior competitor</option>
+                </select>
+               </label></br></br>
+               <label>My payment method
+                  <select id="payment-m-u">
+                     <option>Junior team</option>
+                     <option>Senior team</option>
+                  </select></br></br>
+               </label>
+            </section>
+            <section id="preferences-c-u">
+               <label>My primary distance</br></br>
+                  <label><input type="radio" name="options-c-u" id="sprinter-c-u" value="Sprinter"> Sprinter</label></br>
+                  <label><input type="radio" name="options-c-u" id="medium-distance-c-u" value="Medium distance"> Medium distance</label></br>
+                  <label><input type="radio" name="options-c-u" id="long-distance-c-u" value="Long distance"> Long distance</label></br></br></br>
+               </label>
+            </section>
+            <section class="buttons">
+              <button class="btn__style">Submit</button>
+              <button class="btn__style">Reset</button>
+              <button class="btn__style">Close</button>
+            </section>
+         </form>
+      </dialog>
+   <script src="create-competitor.js"></script>
+   </body>
+</html>

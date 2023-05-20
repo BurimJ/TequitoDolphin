@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="app.css" />
+      <title>Members</title>
+   </head>
+   <body>
+     <header>                 
+        <button id="btn__add-member" class="btn__style"> Add a Member</button>
+      </header>
+      <div id="members">
+        <h2>here</h2>
+      </div>
+
+         <!-- dialog and form for normal membership -->
+
+      <dialog id="dialog-for-member">
+         <form id="form-for-member">
+          <h3>Add member</h3>
+          <p id="obs-m">If you are a competitor, please use the "add competitor" button instead.</p></br>
+            <section id="personal-information-m">
+               <label>First Name <input type="text" id="first-name-m" /></label></br></br>
+               <label>Last Name <input type="text" id="last-name-m" /></label></br></br>
+               <label>Age <input type="number" id="age-m" /></label></br></br>
+               <label>Birthdate <input type="date" id="birthdate-m"/></label></br></br>
+            </section>
+            <section id="club-information-m">
+               <label>My Team
+                <select id="team-m">
+                  <option>Junior</option>
+                  <option>Senior</option>
+                </select>
+               </label></br></br>
+               <p id="payment-info-m"> Casual swimming only allowed outside practice times. </p>
+               <label>My payment method
+                  <select id="payment-m">
+                     <option>1 time a week</option>
+                     <option>Up to 3 times a week</option>
+                     <option>Up to 5 times a week</option>
+                  </select></br></br>
+               </label>
+            </section>
+            <section class="buttons">
+               <input type="submit" name="btn__style" id="btn__style" class="btn__style" value="Add Member">
+              <button class="btn__style">Reset</button>
+              <button class="btn__style">Close</button>
+            </section>
+         </form>
+      </dialog>
+
+      <!-- dialog and form for updating member -->
+   
+      <dialog id="dialog-for-member-update">
+         <form id="form-for-member-update">
+          <h3>Update member</h3>
+          <p id="obs-m-u">If you are a competitor, please use the "add competitor" button instead.</p></br>
+            <section id="personal-information-m-u">
+               <label>First Name <input type="text" id="first-name-m-u" /></label></br></br>
+               <label>Last Name <input type="text" id="last-name-m-u" /></label></br></br>
+               <label>Age <input type="number" id="age-m-u" /></label></br></br>
+               <label>Birthdate <input type="date" id="birthdate-m-u"/></label></br></br>
+            </section>
+            <section id="club-information-m-u">
+               <label>My Team
+                <select id="team-m-u">
+                  <option>Junior</option>
+                  <option>Senior</option>
+                </select>
+               </label></br></br>
+               <p id="payment-info-m-u"> Casual swimming only allowed outside practice times. </p>
+               <label>My payment method
+                  <select id="payment-m-u">
+                     <option>1 time a week</option>
+                     <option>Up to 3 times a week</option>
+                     <option>Up to 5 times a week</option>
+                  </select></br></br>
+               </label>
+            </section>
+            <section class="buttons">
+             <button class="btn__style">Submit</button>
+              <button class="btn__style">Reset</button>
+              <button class="btn__style">Close</button>
+            </section>
+         </form>
+      </dialog>
+   <script src="create-member.js"></script>
+   </body>
+</html>
