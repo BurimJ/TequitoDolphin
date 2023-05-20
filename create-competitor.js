@@ -36,12 +36,12 @@ async function getCompetitors() {
 function showCompetitor(competitor) {
   const html = /* html */ `
         <article class="competitors__item">
-            <h3>First Name: ${competitors.firstName}<h3>
-            <h3>Last Name: ${competitors.class}<h3>
-            <h3>Age: ${competitors.age}<h3>
-            <h3>Team: ${competitors.myTeam}<h3>
-            <h3>Payment: ${competitors.myPayment}<h3>
-            <h3>Distance: ${competitors.myDistance}<h3>
+            <p>First Name: ${competitor.firstName}<p>
+            <p>Last Name: ${competitor.class}<p>
+            <p>Age: ${competitor.age}<p>
+            <p>Team: ${competitor.myTeam}<p>
+            <p>Payment: ${competitor.myPayment}<p>
+            <p>Distance: ${competitor.myDistance}<p>
             <button id="btn-update-competitor" class="btn__style">Update competitor</button>
             <button id="btn-delete-competitor" class="btn__style">Delete competitor</button>
         </article>
@@ -54,7 +54,7 @@ function showCompetitor(competitor) {
   document.querySelector("#competitors article:last-child #btn-delete-competitor").addEventListener("click", () => deleteClicked(competitor));
 }
 
-function showcompetitors(competitors) {
+function showCompetitors(competitors) {
   document.querySelector("#competitors").innerHTML = "";
 
   for (const competitor of competitors) {
@@ -64,7 +64,33 @@ function showcompetitors(competitors) {
 
 async function showCompetitorGrid() {
   competitors = await getCompetitors();
-  showCompetitor(competitors);
+  showCompetitors(competitors);
+}
+
+// create comp
+
+async function addCompetitor() {
+  const elements = document.querySelector("#form-for-competitor").elements;
+
+  const competitor = {
+    firstName: elements.firstName.value,
+    lastName: elements.lastName.value,
+    myTeam: elements.myTeam.value,
+    myPayment: elements.myPayment.value,
+    myDistance: elements.myDistance.value,
+  };
+  const json = JSON.stringify(competitor);
+  const response = await fetch(`${endpoint}/competitors.json`, {
+    method: "POST",
+    body: json,
+  });
+
+  if (response.ok) {
+    console.log("new comp added!");
+    showCompetitorGrid();
+  }
+
+  console.log(competitor);
 }
 
 function addCompetitorClicked(event) {
@@ -83,17 +109,6 @@ function addCompetitorClicked(event) {
   modalOpen = false;
 }
 
-async function addCompetitor() {
-  const elements = document.querySelector("#form-for-competitor").elements;
-
-  const competitor = {
-    firstName: elements.firstName.value,
-    lastName: elements.lastName.value,
-    myTeam: elements.myTeam.value,
-    myPayment: elements.myPayment.value,
-    myDistance: elements.myDistance.value,
-  };
-}
 function showAddCompetitorDialog() {
   document.querySelector("#dialog-for-competitor").showModal();
 }
