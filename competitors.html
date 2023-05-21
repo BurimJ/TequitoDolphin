@@ -22,71 +22,32 @@
          <h3>Add competitor</h3>
          <p id="obs-m">If you are NOT competing, please use the "add member" button instead.</p></br>
             <section id="personal-information-c">
-               <label>First Name <input type="text" id="first-name-c" /></label></br></br>
-               <label>Last Name <input type="text" id="last-name-c" /></label></br></br>
-               <label>Age <input type="number" id="age-c" /></label></br></br>
-               <label>Birthdate <input type="date" id="birthdate-c"/></label></br></br>
+               <label>First Name <input type="text" id="competitorFirstName" /></label></br></br>
+               <label>Last Name <input type="text" id="competitorLastName" /></label></br></br>
+               <label>Age <input type="number" id="competitorAge" /></label></br></br>
+               <label>Birthdate <input type="date" id="competitorBirthdate"/></label></br></br>
             </section>
             <section id="club-information-c">
                <label>My Team
-                <select id="team-c">
+                <select id="competitorTeam">
                   <option>Junior competitor</option>
                   <option>Senior competitor</option>
                 </select>
                </label></br></br>
                <label>My payment method
-                  <select id="payment-m">
+                  <select id="competitorPayment">
                      <option>Junior team</option>
                      <option>Senior team</option>
                   </select></br></br>
                </label>
             </section>
             <section id="preferences-c">
-               <label>My primary distance</br></br>
-                  <label><input type="radio" name="options-c" id="sprinter-c" value="Sprinter"> Sprinter</label></br>
-                  <label><input type="radio" name="options-c" id="medium-distance-c" value="Medium distance"> Medium distance</label></br>
-                  <label><input type="radio" name="options-c" id="long-distance-c" value="Long distance"> Long distance</label></br></br></br>
-               </label>
-            </section>
-            <section class="buttons">
-                <input type="submit" name="btn__style" id="btn__style" class="btn__style" value="Add Competitor">
-              <button class="btn__style">Reset</button>
-              <button class="btn__style">Close</button>
-            </section>
-         </form>
-      </dialog>
-
-      <!-- dialog and form for competitive swimmers update -->
-
-      <dialog id="dialog-for-competitor-update">
-        <form id="form-for-competitor-update">
-         <h3>Update competitor</h3>
-         <p id="obs-m-u">If you are NOT competing, please use the "add member" button instead.</p></br>
-            <section id="personal-information-c-u">
-               <label>First Name <input type="text" id="first-name-c-u" /></label></br></br>
-               <label>Last Name <input type="text" id="last-name-c-u" /></label></br></br>
-               <label>Age <input type="number" id="age-c-u" /></label></br></br>
-               <label>Birthdate <input type="date" id="birthdate-c-u"/></label></br></br>
-            </section>
-            <section id="club-information-c-u">
-               <label>My Team
-                <select id="team-c-u">
-                  <option>Junior competitor</option>
-                  <option>Senior competitor</option>
-                </select>
-               </label></br></br>
-               <label>My payment method
-                  <select id="payment-m-u">
-                     <option>Junior team</option>
-                     <option>Senior team</option>
+                <label>My primary distance
+                  <select id="competitorDistance">
+                     <option>Sprinter</option>
+                     <option>Medium distance</option>
+                     <option>Long distance</option>
                   </select></br></br>
-               </label>
-            </section>
-            <section id="preferences-c-u">
-               <label>My primary distance</br></br>
-                  <label><input type="radio" name="options-c-u" id="sprinter-c-u" value="Sprinter"> Sprinter</label></br>
-                  <label><input type="radio" name="options-c-u" id="medium-distance-c-u" value="Medium distance"> Medium distance</label></br>
-                  <label><input type="radio" name="options-c-u" id="long-distance-c-u" value="Long distance"> Long distance</label></br></br></br>
                </label>
             </section>
             <section class="buttons">
@@ -96,6 +57,58 @@
             </section>
          </form>
       </dialog>
+
+      <!-- dialog and form for competitive swimmers update -->
+
+      <dialog id="dialog-update-competitor">
+        <form id="form-update-competitor">
+         <h3>Update competitor</h3>
+         <p id="obs-m-u">If you are NOT competing, please use the "add member" button instead.</p></br>
+            <section id="personal-information-c-u">
+               <label>First Name <input type="text" id="competitorUpdateFirstName" /></label></br></br>
+               <label>Last Name <input type="text" id="competitorUpdateLastName" /></label></br></br>
+               <label>Age <input type="number" id="competitorUpdateAge" /></label></br></br>
+               <label>Birthdate <input type="date" id="competitorUpdateBirthdate"/></label></br></br>
+            </section>
+            <section id="club-information-c-u">
+               <label>My Team
+                <select id="competitorUpdateTeam">
+                  <option>Junior competitor</option>
+                  <option>Senior competitor</option>
+                </select>
+               </label></br></br>
+               <label>My payment method
+                  <select id="competitorUpdatePayment">
+                     <option>Junior team</option>
+                     <option>Senior team</option>
+                  </select></br></br>
+               </label>
+            </section>
+          <section id="preferences-c-u">
+                <label>My primary distance
+                  <select id="competitorUpdateDistance">
+                     <option>Sprinter</option>
+                     <option>Medium distance</option>
+                     <option>Long distance</option>
+                  </select></br></br>
+               </label>
+            </section>
+            <section class="buttons">
+              <button class="btn__style">Update Competitor</button>
+              <button class="btn__style">Reset</button>
+              <button class="btn__style">Close</button>
+            </section>
+         </form>
+      </dialog>
+
+
+         <dialog id="dialog-delete-competitor">
+        <h2>Are you sure you want to delete this competitor?</h2>
+        <form method="dialog" id="form-delete-competitor">
+            <button class="btn__style">No</button>
+            <button class="btn__style">Yes</button>
+        </form>
+    </dialog>
    <script src="create-competitor.js"></script>
    </body>
 </html>
