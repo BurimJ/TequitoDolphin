@@ -53,19 +53,19 @@
 
       <!-- dialog and form for updating member -->
    
-      <dialog id="dialog-for-member-update">
-         <form id="form-for-member-update">
+      <dialog id="dialog-update-member">
+         <form id="form-update-member">
           <h3>Update member</h3>
           <p id="obs-m-u">If you are a competitor, please use the "add competitor" button instead.</p></br>
             <section id="personal-information-m-u">
-               <label>First Name <input type="text" id="first-name-m-u" /></label></br></br>
-               <label>Last Name <input type="text" id="last-name-m-u" /></label></br></br>
-               <label>Age <input type="number" id="age-m-u" /></label></br></br>
-               <label>Birthdate <input type="date" id="birthdate-m-u"/></label></br></br>
+               <label>First Name <input type="text" id="memberUpdateFirstName" /></label></br></br>
+               <label>Last Name <input type="text" id="memberUpdateFirstName" /></label></br></br>
+               <label>Age <input type="number" id="memberUpdateAge" /></label></br></br>
+               <label>Birthdate <input type="date" id="memberUpdateBirthdate"/></label></br></br>
             </section>
-            <section id="memberUpdateTeam">
+            <section id="club-information-m-u">
                <label>My Team
-                <select id="team-m-u">
+                <select id="memberUpdateTeam">
                   <option>Junior</option>
                   <option>Senior</option>
                 </select>
@@ -80,12 +80,13 @@
                </label>
             </section>
             <section class="buttons">
-              <button class="btn__style">Submit</button>
+              <button class="btn__style">Update Member</button>
               <button class="btn__style">Reset</button>
               <button class="btn__style">Close</button>
             </section>
          </form>
       </dialog>
+
         <dialog id="dialog-delete-member">
         <h2>Are you sure you want to delete this member?</h2>
         <form method="dialog" id="form-delete-member">
