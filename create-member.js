@@ -21,7 +21,10 @@ function start() {
 
   document.querySelector("#btn__add-member").addEventListener("click", showAddMemberDialog);
   document.querySelector("#form-for-member").addEventListener("submit", addMemberClicked);
-  // document.querySelector("#form-update-competitor").addEventListener("submit", updateCompetitorClicked);
+
+  document.querySelector("#dialog-delete-member").addEventListener("submit", deleteClicked);
+  document.querySelector("#form-update-member").addEventListener("submit", updateClicked);
+  // document.querySelector("#form-update-member").addEventListener("submit", updatememberClicked);
 }
 
 let members;
@@ -35,13 +38,12 @@ async function getMembers() {
 
 function showMember(member) {
   const html = /* html */ `
-        <article class="competitors__item">
-            <h3>First Name: ${members.firstName}<h3>
-            <h3>Last Name: ${members.class}<h3>
-            <h3>Age: ${members.age}<h3>
-            <h3>Team: ${members.myTeam}<h3>
-            <h3>Payment: ${members.myPayment}<h3>
-            <h3>Distance: ${members.myDistance}<h3>
+        <article class="members__item">
+            <h3>First Name: ${member.firstName}<h3>
+            <h3>Last Name: ${member.class}<h3>
+            <h3>Age: ${member.age}<h3>
+            <h3>Team: ${member.myTeam}<h3>
+            <h3>Payment: ${member.myPayment}<h3>
             <button id="btn-update-member" class="btn__style">Update Member</button>
             <button id="btn-delete-member" class="btn__style">Delete Member</button>
         </article>
@@ -54,7 +56,7 @@ function showMember(member) {
   document.querySelector("#members article:last-child #btn-delete-member").addEventListener("click", () => deleteClicked(members));
 }
 
-function showmembers(members) {
+function showMembers(members) {
   document.querySelector("#members").innerHTML = "";
 
   for (const member of members) {
@@ -64,8 +66,36 @@ function showmembers(members) {
 
 async function showMemberGrid() {
   members = await getMembers();
-  showMember(members);
+  showMembers(members);
 }
+
+// add member
+async function addMember() {
+  const elements = document.querySelector("#form-for-member").elements;
+
+  const member = {
+    firstName: elements.memberFirstName.value,
+    lastName: elements.memberLastName.value,
+    age: elements.memberAge.value,
+    //bithdate: elements.memberBirthdate.value,
+    myTeam: elements.memberTeam.value,
+    myPayment: elements.memberPayment.value,
+  };
+  const json = JSON.stringify(member);
+  const response = await fetch(`${endpoint}/members.json`, {
+    method: "POST",
+    body: json,
+  });
+
+  if (response.ok) {
+    console.log("new member added!");
+    showMemberGrid();
+  }
+
+  console.log(member);
+}
+
+//
 
 function addMemberClicked(event) {
   event.preventDefault();
@@ -80,20 +110,87 @@ function addMemberClicked(event) {
   addMember();
   form.reset();
   document.querySelector("#dialog-for-member").close();
-  modalOpen = false;
 }
 
-async function addMember() {
-  const elements = document.querySelector("#form-for-member").elements;
-
-  const competitor = {
-    firstName: elements.firstName.value,
-    lastName: elements.lastName.value,
-    myTeam: elements.myTeam.value,
-    myPayment: elements.myPayment.value,
-    myDistance: elements.myDistance.value,
-  };
-}
 function showAddMemberDialog() {
   document.querySelector("#dialog-for-member").showModal();
+}
+
+// delete
+
+function deleteMemberClicked(member) {
+  const deleteMember = document.querySelector("#form-delete-member");
+
+  deleteMember.setAttribute("data-id", member.id);
+  document.querySelector("#dialog-delete-member").showModal();
+}
+
+function deleteClicked(event) {
+  const id = event.target.getAttribute("data-id");
+
+  if (event.submitter.innerHTML === "Yes") {
+    deleteMember(id);
+  }
+
+  document.querySelector("#dialog-delete-member").close();
+}
+
+async function deleteMember(id) {
+  const response = await fetch(`${endpoint}/members/${id}.json`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    console.log("member deleted!");
+    showMemberGrid();
+  }
+}
+
+function updateMemberClicked(member) {
+  const update = document.querySelector("#form-update-member");
+  console.log("update", update);
+  update.memberUpdateFirstName.value = member.firstName;
+  update.memberUpdateLastName.value = member.lastName;
+  update.memberUpdateAge.value = member.age;
+  update.memberUpdateTeam.value = member.myTeam;
+  update.memberUpdatePayment.value = member.myPayment;
+  // update.memberUpdateBirthdate.value = members.birthdate;
+  update.setAttribute("data-id", member.id);
+  document.querySelector("#dialog-update-member").showModal();
+}
+
+function updateClicked(event) {
+  event.preventDefault();
+  const form = event.target;
+  const id = form.getAttribute("data-id");
+  if (event.submitter.innerHTML === "Update Member") {
+    updateMember(id);
+  }
+  document.querySelector("#dialog-update-member").close();
+}
+
+async function updateMember(id) {
+  const elements = document.querySelector("#form-update-member").elements;
+  console.log("elements", elements);
+
+  const member = {
+    firstName: elements.memberUpdateFirstName.value,
+    lastName: elements.memberUpdateLastName.value,
+    age: elements.memberUpdateAge.value,
+    //bithdate: elements.memberUpdateBirthdate.value,
+    myTeam: elements.memberUpdateTeam.value,
+    myPayment: elements.memberUpdatePayment.value,
+  };
+  console.log("member", member);
+  const json = JSON.stringify(member);
+  const response = await fetch(`${endpoint}/members/${id}.json`, {
+    method: "PUT",
+    body: json,
+  });
+
+  if (response.ok) {
+    console.log("member updated!");
+    showMemberGrid();
+  }
+  console.log(member);
 }

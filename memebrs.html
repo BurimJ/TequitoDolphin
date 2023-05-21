@@ -12,7 +12,7 @@
         <button id="btn__add-member" class="btn__style"> Add a Member</button>
       </header>
       <div id="members">
-        <h2>here</h2>
+        <h2>here mmebers</h2>
       </div>
 
          <!-- dialog and form for normal membership -->
@@ -22,21 +22,21 @@
           <h3>Add member</h3>
           <p id="obs-m">If you are a competitor, please use the "add competitor" button instead.</p></br>
             <section id="personal-information-m">
-               <label>First Name <input type="text" id="first-name-m" /></label></br></br>
-               <label>Last Name <input type="text" id="last-name-m" /></label></br></br>
-               <label>Age <input type="number" id="age-m" /></label></br></br>
-               <label>Birthdate <input type="date" id="birthdate-m"/></label></br></br>
+               <label>First Name <input type="text" id="memberFirstName" /></label></br></br>
+               <label>Last Name <input type="text" id="memberLastName" /></label></br></br>
+               <label>Age <input type="number" id="memberAge" /></label></br></br>
+               <label>Birthdate <input type="date" id="memberBirthdate"/></label></br></br>
             </section>
             <section id="club-information-m">
                <label>My Team
-                <select id="team-m">
+                <select id="memberTeam">
                   <option>Junior</option>
                   <option>Senior</option>
                 </select>
                </label></br></br>
                <p id="payment-info-m"> Casual swimming only allowed outside practice times. </p>
                <label>My payment method
-                  <select id="payment-m">
+                  <select id="memberPayment">
                      <option>1 time a week</option>
                      <option>Up to 3 times a week</option>
                      <option>Up to 5 times a week</option>
@@ -63,7 +63,7 @@
                <label>Age <input type="number" id="age-m-u" /></label></br></br>
                <label>Birthdate <input type="date" id="birthdate-m-u"/></label></br></br>
             </section>
-            <section id="club-information-m-u">
+            <section id="memberUpdateTeam">
                <label>My Team
                 <select id="team-m-u">
                   <option>Junior</option>
@@ -72,7 +72,7 @@
                </label></br></br>
                <p id="payment-info-m-u"> Casual swimming only allowed outside practice times. </p>
                <label>My payment method
-                  <select id="payment-m-u">
+                  <select id="memberUpdatePayment">
                      <option>1 time a week</option>
                      <option>Up to 3 times a week</option>
                      <option>Up to 5 times a week</option>
@@ -80,12 +80,19 @@
                </label>
             </section>
             <section class="buttons">
-             <button class="btn__style">Submit</button>
+              <button class="btn__style">Submit</button>
               <button class="btn__style">Reset</button>
               <button class="btn__style">Close</button>
             </section>
          </form>
       </dialog>
+        <dialog id="dialog-delete-member">
+        <h2>Are you sure you want to delete this member?</h2>
+        <form method="dialog" id="form-delete-member">
+            <button class="btn__style">No</button>
+            <button class="btn__style">Yes</button>
+        </form>
+    </dialog>
    <script src="create-member.js"></script>
    </body>
 </html>
