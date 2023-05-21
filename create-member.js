@@ -53,7 +53,7 @@ function showMember(member) {
 
   //event listeners to btns
   document.querySelector("#members article:last-child #btn-update-member").addEventListener("click", () => updateClicked(member));
-  document.querySelector("#members article:last-child #btn-delete-member").addEventListener("click", () => deleteClicked(members));
+  document.querySelector("#members article:last-child #btn-delete-member").addEventListener("click", () => deleteClicked(member));
 }
 
 function showMembers(members) {
