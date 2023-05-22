@@ -12,6 +12,21 @@
          <h1>Competition times</h1>
          <button id="btn-add-time">Add Time</button>
       </header>
+      <section id="sorting">
+         <button id="btn-top-five" class="btn__style">Top 5 times</button>
+         <select id="disciplineSort">
+            <option id="crawlSort">Crawl</option>
+            <option id="backstrokeSort">Backstroke</option>
+            <option id="breastStrokeSort">Breatstroke</option>
+            <option id="butterflySort">Butterfly</option>
+         </select>
+         <select id="distanceSort">
+            <option id="shortDistanceSort" value="50 m">50 m</option>
+            <option id="mediumDistanceSort" value="200 m">200 m</option>
+            <option id="longDistanceSort" value="1000 m">1000 m</option>
+         </select>
+         <button id="btn-reset-filters" class="btn__style">Reset Filters</button>
+      </section>
 
       <div id="times"></div>
 
@@ -30,16 +45,15 @@
             <section id="discipline-information-t">
                <label> Choose your discipline</br></br>
                <select id="distanceTime">
-                  <option>50 m (Short distance)</option>
-                  <option>200 m (Medium distance)</option>
-                  <option>1000 m (Long distance)</option>
+                  <option>50 m</option>
+                  <option>200 m</option>
+                  <option>1000 m</option>
                </select>
                <select id="disciplineTime">
                   <option>Crawl</option>
                   <option>Backstroke</option>
                   <option>Breatstroke</option>
                   <option>Butterfly</option>
-                  <option>Free</option>
                </select></br></br>
                </label>
             </section>

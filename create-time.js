@@ -11,191 +11,287 @@ const endpoint = "https://semesterprojekt-790e8-default-rtdb.europe-west1.fireba
 // prepare data
 
 function prepareData(dataObject) {
-  const array = [];
-  for (const key in dataObject) {
-    const object = dataObject[key];
-    object.id = key;
-    array.push(object);
-  }
-  return array;
+   const array = [];
+   for (const key in dataObject) {
+      const object = dataObject[key];
+      object.id = key;
+      array.push(object);
+   }
+   return array;
 }
 
 // start
 
 function start() {
-  showTimeTable();
+   showTimeTable();
 
-  document.querySelector("#btn-add-time").addEventListener("click", showAddTimeModal);
-  document.querySelector("#form-for-time").addEventListener("submit", addTimeClicked);
-  document.querySelector("#dialog-delete-time").addEventListener("submit", deleteTimeClicked);
+   document.querySelector("#btn-add-time").addEventListener("click", showAddTimeModal);
+   document.querySelector("#form-for-time").addEventListener("submit", addTimeClicked);
+   document.querySelector("#dialog-delete-time").addEventListener("submit", deleteTimeClicked);
+   //filters
+   document.querySelector("#btn-top-five").addEventListener("click", showTopFive);
+   document.querySelector("#btn-reset-filters").addEventListener("click", showTimeTable);
+   document.querySelector("#distanceSort").addEventListener("change", selectDistance);
+   document.querySelector("#disciplineSort").addEventListener("change", selectDiscipline);
 }
 
 let times;
-let competitors;
+let filteredTimes = [];
 
 // fetch
 
 async function getTimes() {
-  const response = await fetch(`${endpoint}/times.json`);
-  const data = await response.json();
-  const times = prepareData(data);
-  return times;
+   const response = await fetch(`${endpoint}/times.json`);
+   const data = await response.json();
+   const times = prepareData(data);
+   return times;
 }
 
 // show times
 
 function showTime(time) {
-  const html = /*html*/ `
+   const html = /*html*/ `
     <article>
-        <p>hej ${time.firstName}</p>
+      <tr>
+         <td>${time.firstName} ${time.lastName}</td>
+         <td>${time.age}</td>
+         <td>${time.distance} ${time.discipline}</td>
+         ${showCompetitiveTime(time)}
+      </tr>
         <button id="btn-delete-time" class="btn__style">Delete</button>
     </article>
     `;
 
-  document.querySelector("#times").insertAdjacentHTML("beforeend", html);
-  // delete click
-  document.querySelector("#times article:last-child #btn-delete-time").addEventListener("click", () => deleteClicked(time));
+   document.querySelector("#times").insertAdjacentHTML("beforeend", html);
+   // delete click
+   document.querySelector("#times article:last-child #btn-delete-time").addEventListener("click", () => deleteClicked(time));
 }
 
 function showTimes(times) {
-  document.querySelector("#times").innerHTML = "";
+   document.querySelector("#times").innerHTML = "";
 
-  for (const time of times) {
-    showTime(time);
-  }
+   for (const time of times) {
+      showTime(time);
+   }
+}
+
+function showCompetitiveTime(time) {
+   let html1 = "";
+   if (time.minuts === "") {
+      html1 += `<td>${time.seconds}:${time.milliseconds}</td>`;
+   } else {
+      html1 += `<td>
+         ${time.minuts}:${time.seconds}:${time.milliseconds}
+      </td>`;
+   }
+
+   return html1;
 }
 
 async function showTimeTable() {
-  times = await getTimes();
-  //    const times = testArray;
-  showTimes(times);
+   times = await getTimes();
+   showTimes(times);
+}
+
+async function showTopFive() {
+   times = await getTimes();
+   const topFive = await timeSort(times);
+   showingArray = showTimes(topFive);
+   showTimes(topFive);
+}
+
+async function selectDistance(event) {
+   times = await getTimes();
+   const distance = event.target.value;
+   const distanceArray = isDistance(times, distance);
+   showTimes(distanceArray);
+}
+
+async function selectDiscipline(event) {
+   times = await getTimes();
+   const discipline = event.target.value;
+   const disciplineArray = isDiscipline(times, discipline);
+   showTimes(disciplineArray);
 }
 
 // create time
 
 async function addTime() {
-  const elements = document.querySelector("#form-for-time").elements;
+   const elements = document.querySelector("#form-for-time").elements;
 
-  //spørg chatgpt hvordan man henviser til ider med bindestreg.
+   //spørg chatgpt hvordan man henviser til ider med bindestreg.
 
-  const time = {
-    firstName: elements.firstNameTime.value,
-    lastName: elements.lastNameTime.value,
-    age: elements.ageTime.value,
-    distance: elements.distanceTime.value,
-    discipline: elements.disciplineTime.value,
-    minuts: elements.minutsTime.value,
-    seconds: elements.secondsTime.value,
-    milliseconds: elements.millisecondsTime.value,
-  };
+   const time = {
+      firstName: elements.firstNameTime.value,
+      lastName: elements.lastNameTime.value,
+      age: elements.ageTime.value,
+      distance: elements.distanceTime.value,
+      discipline: elements.disciplineTime.value,
+      minuts: elements.minutsTime.value,
+      seconds: elements.secondsTime.value,
+      milliseconds: elements.millisecondsTime.value,
+   };
 
-  const json = JSON.stringify(time);
-  const response = await fetch(`${endpoint}/times.json`, {
-    method: "POST",
-    body: json,
-  });
+   const json = JSON.stringify(time);
+   const response = await fetch(`${endpoint}/times.json`, {
+      method: "POST",
+      body: json,
+   });
 
-  if (response.ok) {
-    console.log("new time added!");
-    showTimeTable();
-  }
+   if (response.ok) {
+      console.log("new time added!");
+      showTimeTable();
+   }
 
-  console.log(time);
+   console.log(time);
 }
 
 function addTimeClicked(event) {
-  event.preventDefault();
+   event.preventDefault();
 
-  const form = document.querySelector("#form-for-time");
+   const form = document.querySelector("#form-for-time");
 
-  if (event.submitter.innerHTML === "Close") {
-    document.querySelector("#dialog-for-time").close();
-    return;
-  }
+   if (event.submitter.innerHTML === "Close") {
+      document.querySelector("#dialog-for-time").close();
+      return;
+   }
 
-  addTime();
-  form.reset();
-  document.querySelector("#dialog-for-time").close();
+   addTime();
+   form.reset();
+   document.querySelector("#dialog-for-time").close();
 }
 
 function showAddTimeModal() {
-  document.querySelector("#dialog-for-time").showModal();
+   document.querySelector("#dialog-for-time").showModal();
 }
 
 // delete time
 
 function deleteClicked(time) {
-  const deleteTime = document.querySelector("#form-delete-time");
+   const deleteTime = document.querySelector("#form-delete-time");
 
-  deleteTime.setAttribute("data-id", time.id);
-  document.querySelector("#dialog-delete-time").showModal();
+   deleteTime.setAttribute("data-id", time.id);
+   document.querySelector("#dialog-delete-time").showModal();
 }
 
 function deleteTimeClicked(event) {
-  const id = event.target.getAttribute("data-id");
+   const id = event.target.getAttribute("data-id");
 
-  if (event.submitter.innerHTML === "Yes") {
-    deleteTime(id);
-  }
+   if (event.submitter.innerHTML === "Yes") {
+      deleteTime(id);
+   }
 
-  document.querySelector("#dialog-delete-time").close();
+   document.querySelector("#dialog-delete-time").close();
 }
 
 async function deleteTime(id) {
-  const response = await fetch(`${endpoint}/times/${id}.json`, {
-    method: "DELETE",
-  });
+   const response = await fetch(`${endpoint}/times/${id}.json`, {
+      method: "DELETE",
+   });
 
-  if (response.ok) {
-    console.log("time deleted!");
-    showTimeTable();
-  }
+   if (response.ok) {
+      console.log("time deleted!");
+      showTimeTable();
+   }
+}
+
+// top 5 filter
+
+async function timeSort(array) {
+   const sortedArray = array.sort((a, b) => a.minuts - b.minuts);
+
+   const minutsSortedArray = [];
+
+   for (let i = 0; i < sortedArray.length; i++) {
+      if (sortedArray[i].minuts <= sortedArray[4].minuts) {
+         minutsSortedArray.push(sortedArray[i]);
+      }
+   }
+
+   if (minutsSortedArray.length === 5) {
+      return minutsSortedArray;
+   }
+
+   const secondsSortedArray = [];
+
+   for (let i = 0; i < minutsSortedArray.length; i++) {
+      if (minutsSortedArray[i].seconds <= minutsSortedArray[4].seconds) {
+         secondsSortedArray.push(minutsSortedArray[i]);
+      }
+   }
+
+   if (secondsSortedArray.length === 5) {
+      return secondsSortedArray;
+   }
+
+   const millisecondsSortedArray = secondsSortedArray.sort((a, b) => a.milliseconds - b.milliseconds);
+   return millisecondsSortedArray.slice(0, 5);
+}
+
+function isDiscipline(array, discipline) {
+   const sortedArray = [];
+   for (let i = 0; i < array.length; i++) {
+      if (array[i].discipline === discipline) {
+         sortedArray.push(array[i]);
+      }
+   }
+   return sortedArray;
+}
+
+function isDistance(array, distance) {
+   const sortedArray = [];
+   for (let i = 0; i < array.length; i++) {
+      if (array[i].distance === distance) {
+         sortedArray.push(array[i]);
+      }
+   }
+   return sortedArray;
 }
 
 // test array
 
 const testArray = [
-  { firstName: "Crawl", time: 10.11 },
-  { firstName: "Butterfly", time: 10.12 },
-  { firstName: "Ryg-crawl", time: 10.13 },
-  { firstName: "Brystsvømning", time: 10.14 },
-  { firstName: "Crawl", time: 10.15 },
-  { firstName: "Ryg-crawl", time: 10.16 },
-  { firstName: "Crawl", time: 10.17 },
-  { firstName: "Crawl", time: 10.18 },
-  { firstName: "Butterfly", time: 10.19 },
-  { firstName: "Crawl", time: 10.2 },
+   { firstName: "Crawl", time: 10.11 },
+   { firstName: "Butterfly", time: 10.12 },
+   { firstName: "Ryg-crawl", time: 10.13 },
+   { firstName: "Brystsvømning", time: 10.14 },
+   { firstName: "Crawl", time: 10.15 },
+   { firstName: "Ryg-crawl", time: 10.16 },
+   { firstName: "Crawl", time: 10.17 },
+   { firstName: "Crawl", time: 10.18 },
+   { firstName: "Butterfly", time: 10.19 },
+   { firstName: "Crawl", time: 10.2 },
 ];
 
 const testObjectID = [
-  {
-    firstName: "Frederikke",
-    lastName: "Vammen",
-    age: "21",
-    id: "frevam23-S",
-  },
-  {
-    firstName: "Frederikke",
-    lastName: "Andersen",
-    age: "21",
-    id: "frevam24-J",
-  },
+   {
+      firstName: "Frederikke",
+      lastName: "Vammen",
+      age: "21",
+      id: "frevam23-S",
+   },
+   {
+      firstName: "Frederikke",
+      lastName: "Andersen",
+      age: "21",
+      id: "frevam24-J",
+   },
 ];
 
 // virker;
 
 function findID(idCompetitor) {
-  for (let i = 0; i < testObjectID.length; i++) {
-    if (idCompetitor === testObjectID[i].id) {
-      return testObjectID[i];
-    }
-  }
+   for (let i = 0; i < testObjectID.length; i++) {
+      if (idCompetitor === testObjectID[i].id) {
+         return testObjectID[i];
+      }
+   }
 }
 
 function competitorInformation(idCompetitor) {
-  const competitor = findID(idCompetitor);
-  return `${competitor.firstName}`;
+   const competitor = findID(idCompetitor);
+   return `${competitor.firstName}`;
 }
 
 // console.log(findID1("frevam23-S"));
-console.log(competitorInformation("frevam23-S"));
+// console.log(competitorInformation("frevam23-S"));
