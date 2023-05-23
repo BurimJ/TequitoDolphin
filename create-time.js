@@ -29,10 +29,10 @@ function start() {
    document.querySelector("#form-for-time").addEventListener("submit", addTimeClicked);
    document.querySelector("#dialog-delete-time").addEventListener("submit", deleteTimeClicked);
    //filters
-   document.querySelector("#btn-top-five").addEventListener("click", showTopFive);
    document.querySelector("#btn-reset-filters").addEventListener("click", showTimeTable);
    document.querySelector("#distanceSort").addEventListener("change", selectDistance);
    document.querySelector("#disciplineSort").addEventListener("change", selectDiscipline);
+   document.querySelector("#top-five").addEventListener("change", showTopFive);
 }
 
 let times;
@@ -92,12 +92,6 @@ async function showTimeTable() {
    showTimes(times);
 }
 
-async function showTopFive() {
-   times = await getTimes();
-   const topFive = await timeSort(times);
-   showTimes(topFive);
-}
-
 async function selectDistance(event) {
    times = await getTimes();
    const distance = event.target.value;
@@ -110,6 +104,38 @@ async function selectDiscipline(event) {
    const discipline = event.target.value;
    const disciplineArray = isDiscipline(times, discipline);
    showTimes(disciplineArray);
+}
+
+async function showTopFive(event) {
+   times = await getTimes();
+
+   if (event.target.value === "50c") {
+      showTimes(await timeSort(isDistance(isDiscipline(times, "Crawl"), "50 m")));
+   } else if (event.target.value === "200c") {
+      showTimes(await timeSort(isDistance(isDiscipline(times, "Crawl"), "200 m")));
+   } else if (event.target.value === "1000c") {
+      showTimes(await timeSort(isDistance(isDiscipline(times, "Crawl"), "1000 m")));
+   } else if (event.target.value === "50ba") {
+      showTimes(await timeSort(isDistance(isDiscipline(times, "Backstroke"), "50 m")));
+   } else if (event.target.value === "200ba") {
+      showTimes(await timeSort(isDistance(isDiscipline(times, "Backstroke"), "200 m")));
+   } else if (event.target.value === "1000ba") {
+      showTimes(await timeSort(isDistance(isDiscipline(times, "Backstroke"), "1000 m")));
+   } else if (event.target.value === "50br") {
+      showTimes(await timeSort(isDistance(isDiscipline(times, "Breaststroke"), "50 m")));
+   } else if (event.target.value === "200br") {
+      showTimes(await timeSort(isDistance(isDiscipline(times, "Breaststroke"), "200 m")));
+   } else if (event.target.value === "1000br") {
+      showTimes(await timeSort(isDistance(isDiscipline(times, "Breaststroke"), "1000 m")));
+   } else if (event.target.value === "50bu") {
+      showTimes(await timeSort(isDistance(isDiscipline(times, "Butterfly"), "50 m")));
+   } else if (event.target.value === "200bu") {
+      showTimes(await timeSort(isDistance(isDiscipline(times, "Butterfly"), "200 m")));
+   } else if (event.target.value === "1000bu") {
+      showTimes(await timeSort(isDistance(isDiscipline(times, "Butterfly"), "1000 m")));
+   } else {
+      console.log("failure");
+   }
 }
 
 // create time

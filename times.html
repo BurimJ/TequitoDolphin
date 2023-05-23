@@ -13,7 +13,6 @@
          <button id="btn-add-time">Add Time</button>
       </header>
       <section id="sorting">
-         <button id="btn-top-five" class="btn__style">Top 5 times</button>
          <select id="disciplineSort">
             <option></option>
             <option id="crawlSort">Crawl</option>
@@ -27,6 +26,29 @@
             <option id="mediumDistanceSort" value="200 m">200 m</option>
             <option id="longDistanceSort" value="1000 m">1000 m</option>
          </select>
+         <select id="top-five">
+            <optgroup label="Crawl">
+               <option id="top-five-s-c" value="50c">50 m Crawl Top 5</option>
+               <option id="top-five-m-c" value="200c">200 m Crawl Top 5</option>
+               <option id="top-five-l-c" value="1000c">1000 m Crawl Top 5</option>
+            </optgroup>
+            <optgroup label="Backstroke">
+               <option id="top-five-s-ba" value="50ba">50 m Backstroke Top 5</option>
+               <option id="top-five-m-ba" value="200ba">200 m Backstroke Top 5</option>
+               <option id="top-five-l-ba" value="1000ba">1000 m Backstroke Top 5</option>
+            </optgroup>
+            <optgroup label="Breaststroke">
+               <option id="top-five-s-br" value="50br">50 m Breaststroke Top 5</option>
+               <option id="top-five-m-br" value="200br">200 m Breaststroke Top 5</option>
+               <option id="top-five-l-br" value="1000br">1000 m Breaststroke Top 5</option>
+            </optgroup>
+            <optgroup label="Butterfly">
+               <option id="top-five-s-bu" value="50bu">50 m Butterfly Top 5</option>
+               <option id="top-five-m-bu" value="200bu">200 m Butterfly Top 5</option>
+               <option id="top-five-l-bu" value="1000bu">1000 m Butterfly Top 5</option>
+            </optgroup>
+         </select>
+
          <button id="btn-reset-filters" class="btn__style">Reset Filters</button>
       </section>
 
