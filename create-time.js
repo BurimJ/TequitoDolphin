@@ -36,7 +36,6 @@ function start() {
 }
 
 let times;
-let filteredTimes = [];
 
 // fetch
 
@@ -96,7 +95,6 @@ async function showTimeTable() {
 async function showTopFive() {
    times = await getTimes();
    const topFive = await timeSort(times);
-   showingArray = showTimes(topFive);
    showTimes(topFive);
 }
 
@@ -249,49 +247,3 @@ function isDistance(array, distance) {
 }
 
 // test array
-
-const testArray = [
-   { firstName: "Crawl", time: 10.11 },
-   { firstName: "Butterfly", time: 10.12 },
-   { firstName: "Ryg-crawl", time: 10.13 },
-   { firstName: "Brystsvømning", time: 10.14 },
-   { firstName: "Crawl", time: 10.15 },
-   { firstName: "Ryg-crawl", time: 10.16 },
-   { firstName: "Crawl", time: 10.17 },
-   { firstName: "Crawl", time: 10.18 },
-   { firstName: "Butterfly", time: 10.19 },
-   { firstName: "Crawl", time: 10.2 },
-];
-
-const testObjectID = [
-   {
-      firstName: "Frederikke",
-      lastName: "Vammen",
-      age: "21",
-      id: "frevam23-S",
-   },
-   {
-      firstName: "Frederikke",
-      lastName: "Andersen",
-      age: "21",
-      id: "frevam24-J",
-   },
-];
-
-// virker;
-
-function findID(idCompetitor) {
-   for (let i = 0; i < testObjectID.length; i++) {
-      if (idCompetitor === testObjectID[i].id) {
-         return testObjectID[i];
-      }
-   }
-}
-
-function competitorInformation(idCompetitor) {
-   const competitor = findID(idCompetitor);
-   return `${competitor.firstName}`;
-}
-
-// console.log(findID1("frevam23-S"));
-// console.log(competitorInformation("frevam23-S"));
