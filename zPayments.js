@@ -1,4 +1,5 @@
-"use strict";
+import { showCompetitor } from "./create-competitor.js";
+import { showMember } from "./create-member.js";
 
 // <table id="myTable">
 //   <thead>
@@ -24,7 +25,7 @@
 //   { id: 6, name: "Mark", age: 15, myPayment: "Passive" },
 // ];
 
-let mergedPayments = [].concat(members, competitors);
+let mergedPayments = [].concat(member, competitor);
 
 for (let i = 0; i < mergedPayments.length; i++) {
   let array = mergedPayments[i];
@@ -80,7 +81,9 @@ for (let i = 0; i < mergedPayments.length; i++) {
   buttonCell.appendChild(button);
 }
 
-document.getElementById("sortButton").addEventListener("click", sortTableByPrice);
+document
+  .getElementById("sortButton")
+  .addEventListener("click", sortTableByPrice);
 
 function sortTableByPrice() {
   let table = document.getElementById("myTable");
