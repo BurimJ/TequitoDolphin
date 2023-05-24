@@ -4,7 +4,8 @@ window.addEventListener("load", start);
 
 // end point
 
-const endpoint = "https://semesterprojekt-790e8-default-rtdb.europe-west1.firebasedatabase.app";
+const endpoint =
+  "https://semesterprojekt-790e8-default-rtdb.europe-west1.firebasedatabase.app";
 
 function prepareData(dataObject) {
   const array = [];
@@ -19,11 +20,19 @@ function prepareData(dataObject) {
 function start() {
   showMemberGrid();
 
-  document.querySelector("#btn__add-member").addEventListener("click", showAddMemberDialog);
-  document.querySelector("#form-for-member").addEventListener("submit", addMemberClicked);
+  document
+    .querySelector("#btn__add-member")
+    .addEventListener("click", showAddMemberDialog);
+  document
+    .querySelector("#form-for-member")
+    .addEventListener("submit", addMemberClicked);
 
-  document.querySelector("#dialog-delete-member").addEventListener("submit", deleteClicked);
-  document.querySelector("#form-update-member").addEventListener("submit", updateClicked);
+  document
+    .querySelector("#dialog-delete-member")
+    .addEventListener("submit", deleteClicked);
+  document
+    .querySelector("#form-update-member")
+    .addEventListener("submit", updateClicked);
   // document.querySelector("#form-update-member").addEventListener("submit", updatememberClicked);
 }
 
@@ -52,8 +61,12 @@ function showMember(member) {
   document.querySelector("#members").insertAdjacentHTML("beforeend", html);
 
   //event listeners to btns
-  document.querySelector("#members article:last-child #btn-update-member").addEventListener("click", () => updateClicked(member));
-  document.querySelector("#members article:last-child #btn-delete-member").addEventListener("click", () => deleteClicked(member));
+  document
+    .querySelector("#members article:last-child #btn-update-member")
+    .addEventListener("click", () => updateMemberClicked(member));
+  document
+    .querySelector("#members article:last-child #btn-delete-member")
+    .addEventListener("click", () => deleteMemberClicked(member));
 }
 
 function showMembers(members) {
