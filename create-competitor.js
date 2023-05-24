@@ -52,11 +52,21 @@ function showCompetitor(competitor) {
             <p>Team: ${competitor.myTeam}<p>
             <p>Payment: ${competitor.myPayment}<p>
             <p>Distance: ${competitor.myDistance}<p>
+             ${assignCoach()}
+
             <button id="btn-update-competitor" class="btn__style">Update competitor</button>
             <button id="btn-delete-competitor" class="btn__style">Delete competitor</button>
         </article>
     `;
-
+  function assignCoach() {
+    let html = "";
+    if (competitor.myTeam === "Junior competitor") {
+      html += `<p>Coach: Valde</p>`;
+    } else {
+      html += `<p>Coach: Burim</p>`;
+    }
+    return html;
+  }
   document.querySelector("#competitors").insertAdjacentHTML("beforeend", html);
 
   //event listeners to btns

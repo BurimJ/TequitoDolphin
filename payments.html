@@ -4,21 +4,35 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="app.css" />
     <title>Payments</title>
   </head>
   <body>
-    <table id="myTable">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Arrears</th>
-          <button id="sortButton">Sort by Price</button>
-        </tr>
-      </thead>
-    </table>
+    <main>
+      <nav>
+        <a href="index.html" class="view-link">Home</a>
+        <a href="members.html " class="view-link">Members</a>
+        <a href="competitors.html" class="view-link">Competitors</a>
+        <a href="payments.html" class="view-link">Payments</a>
+        <a href="times.html" class="view-link">Times</a>
+      </nav>
+
+      <table id="myTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Arrears</th>
+            <button id="sortButton">Sort by Price</button>
+          </tr>
+        </thead>
+      </table>
+    </main>
+
     <script src="zPayments.js"></script>
     <script src="create-competitor.js"></script>
     <script src="create-member.js"></script>
   </body>
 </html>
+
+<!-- change main to a div for different css -->
