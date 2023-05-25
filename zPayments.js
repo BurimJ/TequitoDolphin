@@ -1,31 +1,47 @@
-import { showCompetitor } from "./create-competitor.js";
-import { showMember } from "./create-member.js";
+"use strict";
 
-// <table id="myTable">
-//   <thead>
-//     <tr>
-//       <th>Name</th>
-//       <th>Age</th>
-//       <th>Arrears</th>
-//       <button id="sortButton">Sort by Price</button>
-//     </tr>
-//   </thead>
-// </table>
-// <script src="app2.js"></script>
+const endpoint = "https://semesterprojekt-790e8-default-rtdb.europe-west1.firebasedatabase.app";
 
-// let competitors = [
-//   { id: 1, name: "John", age: 72, myPayment: "Passive" },
-//   { id: 2, name: "Jake", age: 59, myPayment: "Senior team" },
-//   { id: 3, name: "James", age: 17, myPayment: "Junior team" },
-// ];
+function prepareData(dataObject) {
+  const array = [];
+  for (const key in dataObject) {
+    const object = dataObject[key];
+    object.id = key;
+    array.push(object);
+  }
+  return array;
+}
 
-// let members = [
-//   { id: 4, name: "Kevin", age: 65, myPayment: "Senior team" },
-//   { id: 5, name: "Kim", age: 15, myPayment: "Junior team" },
-//   { id: 6, name: "Mark", age: 15, myPayment: "Passive" },
-// ];
+async function getMembersPayment() {
+  const response = await fetch(`${endpoint}/members.json`);
+  const data = await response.json();
+  const membersPayment = prepareData(data);
+  return membersPayment;
+}
 
-let mergedPayments = [].concat(member, competitor);
+async function logMembersPayment() {
+  console.log(membersPayment);
+}
+const membersPayment = await getMembersPayment();
+
+logMembersPayment();
+
+async function getCompetitorsPayment() {
+  const response = await fetch(`${endpoint}/competitors.json`);
+  const data = await response.json();
+  const membersCompetitors = prepareData(data);
+  return membersCompetitors;
+}
+
+async function logCompetitorsPayment() {
+  console.log(competitorsPayment);
+}
+const competitorsPayment = await getCompetitorsPayment();
+
+logMembersPayment();
+
+let mergedPayments = [].concat(membersPayment, competitorsPayment);
+console.log(mergedPayments);
 
 for (let i = 0; i < mergedPayments.length; i++) {
   let array = mergedPayments[i];
@@ -74,18 +90,36 @@ for (let i = 0; i < mergedPayments.length; i++) {
     priceCell.textContent = rowData.price;
     row.classList.remove("red-row");
     row.classList.add("green-row");
-    calculateSum();
+    sumPayments = calculateSum();
     sumCellP.textContent = "Total sum: " + sumPayments.toFixed(2);
   });
 
   buttonCell.appendChild(button);
 }
 
-document
-  .getElementById("sortButton")
-  .addEventListener("click", sortTableByPrice);
+let sumPayments = calculateSum();
+
+function calculateSum() {
+  let sum = 0;
+  mergedPayments.forEach(function (rowData) {
+    let price = parseFloat(rowData.price);
+    if (!isNaN(price)) {
+      sum += price;
+    }
+  });
+  return sum;
+}
+
+let sumRowPayments = tablePayments.insertRow();
+let emptyCellPayments = sumRowPayments.insertCell();
+let emptyCell2Payments = sumRowPayments.insertCell();
+let sumCellP = sumRowPayments.insertCell();
+sumCellP.textContent = "Total sum: " + sumPayments.toFixed(2);
+
+document.getElementById("sortButton").addEventListener("click", sortTableByPrice);
 
 function sortTableByPrice() {
+  console.log("sort button123");
   let table = document.getElementById("myTable");
   let rows = Array.from(table.rows).slice(1);
   rows.sort(function (a, b) {
@@ -98,22 +132,3 @@ function sortTableByPrice() {
     table.appendChild(row);
   });
 }
-
-let sumPayments = 0;
-
-function calculateSum() {
-  let sumPayments = 0;
-  mergedPayments.forEach(function (rowData) {
-    let price = parseFloat(rowData.price);
-    if (!isNaN(price)) {
-      sumPayments += price;
-    }
-  });
-}
-
-let sumRowPayments = tablePayments.insertRow();
-let emptyCellPayments = sumRowPayments.insertCell();
-let emptyCell2Payments = sumRowPayments.insertCell();
-let sumCellP = sumRowPayments.insertCell();
-calculateSum();
-sumCellP.textContent = "Total sum: " + sumPayments.toFixed(2);
